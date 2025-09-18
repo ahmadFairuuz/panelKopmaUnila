@@ -1,0 +1,343 @@
+ERROR - 2023-01-12 00:01:52 --> mysqli_sql_exception: Unknown column 'presensi.nomor_anggota' in 'field list' in D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(`p...', 0)
+#1 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`p...')
+#2 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`p...')
+#3 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`p...', Array, false)
+#4 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Coding\laragon\www\panelkopma\app\Controllers\Dashboard.php(64): CodeIgniter\BaseModel->findAll()
+#7 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\CodeIgniter.php(907): App\Controllers\Dashboard->index()
+#8 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#9 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Coding\laragon\www\panelkopma\public\index.php(55): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-01-12 00:01:52 --> Unknown column 'presensi.nomor_anggota' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(`presensi`.`nomor_anggota`) AS `peserta`
+FROM `presensi`
+GROUP BY `presensi`.`id_kegiatan`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`presensi`.`nomor_anggota`) AS `peserta`
+FROM `presensi`
+GROUP BY `presensi`.`id_kegiatan`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`presensi`.`nomor_anggota`) AS `peserta`
+FROM `presensi`
+GROUP BY `presensi`.`id_kegiatan`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`presensi`.`nomor_anggota`) AS `peserta`
+FROM `presensi`
+GROUP BY `presensi`.`id_kegiatan`', [], false)
+ 5 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Dashboard.php(64): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Dashboard->index()
+ 9 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-01-12 00:02:06 --> mysqli_sql_exception: Unknown column 'presensi.nomor_anggota' in 'field list' in D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(`p...', 0)
+#1 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`p...')
+#2 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`p...')
+#3 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`p...', Array, false)
+#4 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Coding\laragon\www\panelkopma\app\Controllers\Dashboard.php(64): CodeIgniter\BaseModel->findAll()
+#7 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\CodeIgniter.php(907): App\Controllers\Dashboard->index()
+#8 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#9 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Coding\laragon\www\panelkopma\public\index.php(55): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-01-12 00:02:06 --> Unknown column 'presensi.nomor_anggota' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(`presensi`.`nomor_anggota`) AS `peserta`
+FROM `presensi`
+GROUP BY `presensi`.`id_kegiatan`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`presensi`.`nomor_anggota`) AS `peserta`
+FROM `presensi`
+GROUP BY `presensi`.`id_kegiatan`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`presensi`.`nomor_anggota`) AS `peserta`
+FROM `presensi`
+GROUP BY `presensi`.`id_kegiatan`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`presensi`.`nomor_anggota`) AS `peserta`
+FROM `presensi`
+GROUP BY `presensi`.`id_kegiatan`', [], false)
+ 5 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Dashboard.php(64): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Dashboard->index()
+ 9 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-01-12 00:02:10 --> mysqli_sql_exception: Unknown column 'presensi.nomor_anggota' in 'field list' in D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(`p...', 0)
+#1 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`p...')
+#2 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`p...')
+#3 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`p...', Array, false)
+#4 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Coding\laragon\www\panelkopma\app\Controllers\Dashboard.php(64): CodeIgniter\BaseModel->findAll()
+#7 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\CodeIgniter.php(907): App\Controllers\Dashboard->index()
+#8 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#9 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Coding\laragon\www\panelkopma\public\index.php(55): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-01-12 00:02:10 --> Unknown column 'presensi.nomor_anggota' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(`presensi`.`nomor_anggota`) AS `peserta`
+FROM `presensi`
+GROUP BY `presensi`.`id_kegiatan`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`presensi`.`nomor_anggota`) AS `peserta`
+FROM `presensi`
+GROUP BY `presensi`.`id_kegiatan`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`presensi`.`nomor_anggota`) AS `peserta`
+FROM `presensi`
+GROUP BY `presensi`.`id_kegiatan`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`presensi`.`nomor_anggota`) AS `peserta`
+FROM `presensi`
+GROUP BY `presensi`.`id_kegiatan`', [], false)
+ 5 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Dashboard.php(64): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Dashboard->index()
+ 9 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-01-12 00:02:17 --> mysqli_sql_exception: Unknown column 'presensi.nomor_anggota' in 'field list' in D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(`p...', 0)
+#1 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`p...')
+#2 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`p...')
+#3 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`p...', Array, false)
+#4 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Coding\laragon\www\panelkopma\app\Controllers\Dashboard.php(64): CodeIgniter\BaseModel->findAll()
+#7 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\CodeIgniter.php(907): App\Controllers\Dashboard->index()
+#8 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#9 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Coding\laragon\www\panelkopma\public\index.php(55): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-01-12 00:02:17 --> Unknown column 'presensi.nomor_anggota' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(`presensi`.`nomor_anggota`) AS `peserta`
+FROM `presensi`
+GROUP BY `presensi`.`id_kegiatan`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`presensi`.`nomor_anggota`) AS `peserta`
+FROM `presensi`
+GROUP BY `presensi`.`id_kegiatan`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`presensi`.`nomor_anggota`) AS `peserta`
+FROM `presensi`
+GROUP BY `presensi`.`id_kegiatan`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`presensi`.`nomor_anggota`) AS `peserta`
+FROM `presensi`
+GROUP BY `presensi`.`id_kegiatan`', [], false)
+ 5 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Dashboard.php(64): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Dashboard->index()
+ 9 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-01-12 00:04:39 --> mysqli_sql_exception: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'anggota_kopma.data_kegiatan.nama_kegiatan' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(`p...', 0)
+#1 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`p...')
+#2 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`p...')
+#3 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`p...', Array, false)
+#4 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Coding\laragon\www\panelkopma\app\Controllers\Dashboard.php(66): CodeIgniter\BaseModel->findAll()
+#7 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\CodeIgniter.php(907): App\Controllers\Dashboard->index()
+#8 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#9 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Coding\laragon\www\panelkopma\public\index.php(55): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-01-12 00:04:39 --> Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'anggota_kopma.data_kegiatan.nama_kegiatan' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(`presensi`.`id_data`) AS `peserta`, `data_kegiatan`.`nama_kegiatan`, `data_kegiatan`.`tanggal_kegiatan`, `data_kegiatan`.`tempat_kegiatan`
+FROM `presensi`
+RIGHT JOIN `data_kegiatan` ON `presensi`.`id_kegiatan`=`presensi`.`id_data`
+GROUP BY `presensi`.`id_kegiatan`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`presensi`.`id_data`) AS `peserta`, `data_kegiatan`.`nama_kegiatan`, `data_kegiatan`.`tanggal_kegiatan`, `data_kegiatan`.`tempat_kegiatan`
+FROM `presensi`
+RIGHT JOIN `data_kegiatan` ON `presensi`.`id_kegiatan`=`presensi`.`id_data`
+GROUP BY `presensi`.`id_kegiatan`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`presensi`.`id_data`) AS `peserta`, `data_kegiatan`.`nama_kegiatan`, `data_kegiatan`.`tanggal_kegiatan`, `data_kegiatan`.`tempat_kegiatan`
+FROM `presensi`
+RIGHT JOIN `data_kegiatan` ON `presensi`.`id_kegiatan`=`presensi`.`id_data`
+GROUP BY `presensi`.`id_kegiatan`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`presensi`.`id_data`) AS `peserta`, `data_kegiatan`.`nama_kegiatan`, `data_kegiatan`.`tanggal_kegiatan`, `data_kegiatan`.`tempat_kegiatan`
+FROM `presensi`
+RIGHT JOIN `data_kegiatan` ON `presensi`.`id_kegiatan`=`presensi`.`id_data`
+GROUP BY `presensi`.`id_kegiatan`', [], false)
+ 5 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Dashboard.php(66): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Dashboard->index()
+ 9 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-01-12 00:04:55 --> mysqli_sql_exception: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'anggota_kopma.data_kegiatan.nama_kegiatan' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(`p...', 0)
+#1 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`p...')
+#2 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`p...')
+#3 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`p...', Array, false)
+#4 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Coding\laragon\www\panelkopma\app\Controllers\Dashboard.php(66): CodeIgniter\BaseModel->findAll()
+#7 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\CodeIgniter.php(907): App\Controllers\Dashboard->index()
+#8 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#9 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Coding\laragon\www\panelkopma\public\index.php(55): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-01-12 00:04:55 --> Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'anggota_kopma.data_kegiatan.nama_kegiatan' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(`presensi`.`id_data`) AS `peserta`, `data_kegiatan`.`nama_kegiatan`
+FROM `presensi`
+RIGHT JOIN `data_kegiatan` ON `presensi`.`id_kegiatan`=`presensi`.`id_data`
+GROUP BY `presensi`.`id_kegiatan`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`presensi`.`id_data`) AS `peserta`, `data_kegiatan`.`nama_kegiatan`
+FROM `presensi`
+RIGHT JOIN `data_kegiatan` ON `presensi`.`id_kegiatan`=`presensi`.`id_data`
+GROUP BY `presensi`.`id_kegiatan`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`presensi`.`id_data`) AS `peserta`, `data_kegiatan`.`nama_kegiatan`
+FROM `presensi`
+RIGHT JOIN `data_kegiatan` ON `presensi`.`id_kegiatan`=`presensi`.`id_data`
+GROUP BY `presensi`.`id_kegiatan`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`presensi`.`id_data`) AS `peserta`, `data_kegiatan`.`nama_kegiatan`
+FROM `presensi`
+RIGHT JOIN `data_kegiatan` ON `presensi`.`id_kegiatan`=`presensi`.`id_data`
+GROUP BY `presensi`.`id_kegiatan`', [], false)
+ 5 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Dashboard.php(66): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Dashboard->index()
+ 9 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-01-12 00:05:24 --> mysqli_sql_exception: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'anggota_kopma.data_kegiatan.nama_kegiatan' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(`p...', 0)
+#1 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`p...')
+#2 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`p...')
+#3 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`p...', Array, false)
+#4 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Coding\laragon\www\panelkopma\app\Controllers\Dashboard.php(67): CodeIgniter\BaseModel->findAll()
+#7 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\CodeIgniter.php(907): App\Controllers\Dashboard->index()
+#8 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#9 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Coding\laragon\www\panelkopma\public\index.php(55): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-01-12 00:05:24 --> Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'anggota_kopma.data_kegiatan.nama_kegiatan' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(`presensi`.`id_data`) AS `peserta`, `data_kegiatan`.`nama_kegiatan`
+FROM `presensi`
+RIGHT JOIN `data_kegiatan` ON `presensi`.`id_kegiatan`=`presensi`.`id_data`
+GROUP BY `presensi`.`id_kegiatan`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`presensi`.`id_data`) AS `peserta`, `data_kegiatan`.`nama_kegiatan`
+FROM `presensi`
+RIGHT JOIN `data_kegiatan` ON `presensi`.`id_kegiatan`=`presensi`.`id_data`
+GROUP BY `presensi`.`id_kegiatan`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`presensi`.`id_data`) AS `peserta`, `data_kegiatan`.`nama_kegiatan`
+FROM `presensi`
+RIGHT JOIN `data_kegiatan` ON `presensi`.`id_kegiatan`=`presensi`.`id_data`
+GROUP BY `presensi`.`id_kegiatan`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`presensi`.`id_data`) AS `peserta`, `data_kegiatan`.`nama_kegiatan`
+FROM `presensi`
+RIGHT JOIN `data_kegiatan` ON `presensi`.`id_kegiatan`=`presensi`.`id_data`
+GROUP BY `presensi`.`id_kegiatan`', [], false)
+ 5 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Dashboard.php(67): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Dashboard->index()
+ 9 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-12 22:31:26 --> Undefined index: nama_platform
+in APPPATH\Views\psda\calon_anggota.php on line 118.
+ 1 APPPATH\Views\psda\calon_anggota.php(118): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index: nama_platform', 'APPPATH\\Views\\psda\\calon_anggota.php', 118, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\psda\\calon_anggota.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('psda/calon_anggota', [], true)
+ 5 APPPATH\Controllers\Psda.php(364): view('psda/calon_anggota', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Psda->calon_anggota()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Psda))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-12 23:16:08 --> preg_match() expects parameter 2 to be string, array given
+in SYSTEMPATH\Validation\Validation.php on line 292.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'preg_match() expects parameter 2 to be string, array given', 'SYSTEMPATH\\Validation\\Validation.php', 292, [...])
+ 2 SYSTEMPATH\Validation\Validation.php(292): preg_match('/(.*?)\\[(.*)\\]/', [...], null)
+ 3 SYSTEMPATH\Validation\Validation.php(175): CodeIgniter\Validation\Validation->processRules('tempat_lahir', 'tempat_lahir', 'ROOTPATH\\public', [...], [...])
+ 4 SYSTEMPATH\Controller.php(140): CodeIgniter\Validation\Validation->run()
+ 5 APPPATH\Controllers\Pendaftaran.php(166): CodeIgniter\Controller->validate([...])
+ 6 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Pendaftaran->daftar_calon()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pendaftaran))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-12 23:42:46 --> Call to undefined function in_groups()
+in APPPATH\Views\dashboard\sidebar.php on line 50.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->render('dashboard/sidebar', [], true)
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('dashboard/index', [], true)
+ 5 APPPATH\Controllers\Dashboard.php(81): view('dashboard/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Dashboard->index()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-12 23:43:16 --> Call to undefined function in_groups()
+in APPPATH\Views\dashboard\sidebar.php on line 50.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->render('dashboard/sidebar', [], true)
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('dashboard/index', [], true)
+ 5 APPPATH\Controllers\Dashboard.php(81): view('dashboard/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Dashboard->index()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-12 23:43:19 --> Call to undefined function in_groups()
+in APPPATH\Views\dashboard\sidebar.php on line 50.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->render('dashboard/sidebar', [], true)
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('dashboard/index', [], true)
+ 5 APPPATH\Controllers\Dashboard.php(81): view('dashboard/index', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Dashboard->index()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-12 23:50:43 --> Undefined variable: file
+in APPPATH\Views\psda\calon_anggota.php on line 125.
+ 1 APPPATH\Views\psda\calon_anggota.php(125): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: file', 'APPPATH\\Views\\psda\\calon_anggota.php', 125, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\psda\\calon_anggota.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('psda/calon_anggota', [], true)
+ 5 APPPATH\Controllers\Psda.php(364): view('psda/calon_anggota', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Psda->calon_anggota()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Psda))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-12 23:50:55 --> syntax error, unexpected ')'
+in APPPATH\Views\psda\calon_anggota.php on line 128.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('psda/calon_anggota', [], true)
+ 3 APPPATH\Controllers\Psda.php(364): view('psda/calon_anggota', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Psda->calon_anggota()
+ 5 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Psda))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-12 23:51:00 --> Undefined variable: type
+in APPPATH\Views\psda\calon_anggota.php on line 128.
+ 1 APPPATH\Views\psda\calon_anggota.php(128): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: type', 'APPPATH\\Views\\psda\\calon_anggota.php', 128, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\psda\\calon_anggota.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('psda/calon_anggota', [], true)
+ 5 APPPATH\Controllers\Psda.php(364): view('psda/calon_anggota', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Psda->calon_anggota()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Psda))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()

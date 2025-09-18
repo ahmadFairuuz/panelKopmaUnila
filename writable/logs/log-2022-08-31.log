@@ -1,0 +1,75 @@
+ERROR - 2022-08-31 21:21:40 --> Error connecting to the database: No connection could be made because the target machine actively refused it.
+
+CRITICAL - 2022-08-31 21:21:40 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it.
+
+in SYSTEMPATH\Database\BaseConnection.php on line 416.
+ 1 SYSTEMPATH\Database\BaseConnection.php(586): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `data_anggota`', [], false)
+ 3 SYSTEMPATH\Model.php(222): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Dashboard.php(24): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Dashboard->index()
+ 7 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+ 8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+ERROR - 2022-08-31 21:52:51 --> Unknown column 'data-anggota.npm' in 'on clause'
+CRITICAL - 2022-08-31 21:52:51 --> Unknown column 'data-anggota.npm' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `data_simpanan`
+JOIN `data_anggota` ON `data_simpanan`.`npm`=`data-anggota`.`npm`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(695): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `data_simpanan`
+JOIN `data_anggota` ON `data_simpanan`.`npm`=`data-anggota`.`npm`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(609): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `data_simpanan`
+JOIN `data_anggota` ON `data_simpanan`.`npm`=`data-anggota`.`npm`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `data_simpanan`
+JOIN `data_anggota` ON `data_simpanan`.`npm`=`data-anggota`.`npm`', [], false)
+ 5 APPPATH\Models\SimpananModel.php(13): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Dashboard.php(51): App\Models\SimpananModel->getSimpanan()
+ 7 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Dashboard->data_simpanan()
+ 8 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+ 9 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-31 22:02:13 --> Undefined variable: data
+in APPPATH\Views\dashboard\calon_anggota.php on line 74.
+ 1 APPPATH\Views\dashboard\calon_anggota.php(74): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: data', 'APPPATH\\Views\\dashboard\\calon_anggota.php', 74, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\dashboard\\calon_anggota.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('dashboard/calon_anggota', [], true)
+ 5 APPPATH\Controllers\Dashboard.php(80): view('dashboard/calon_anggota', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Dashboard->calon_anggota()
+ 7 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+ 8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-31 22:04:11 --> Undefined index: nama_jurusan
+in APPPATH\Views\dashboard\calon_anggota.php on line 84.
+ 1 APPPATH\Views\dashboard\calon_anggota.php(84): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index: nama_jurusan', 'APPPATH\\Views\\dashboard\\calon_anggota.php', 84, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\dashboard\\calon_anggota.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('dashboard/calon_anggota', [], true)
+ 5 APPPATH\Controllers\Dashboard.php(86): view('dashboard/calon_anggota', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Dashboard->calon_anggota()
+ 7 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+ 8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-31 22:06:52 --> Undefined index: nama_platform
+in APPPATH\Views\dashboard\calon_anggota.php on line 88.
+ 1 APPPATH\Views\dashboard\calon_anggota.php(88): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index: nama_platform', 'APPPATH\\Views\\dashboard\\calon_anggota.php', 88, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\dashboard\\calon_anggota.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1135): CodeIgniter\View\View->render('dashboard/calon_anggota', [], true)
+ 5 APPPATH\Controllers\Dashboard.php(86): view('dashboard/calon_anggota', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(896): App\Controllers\Dashboard->calon_anggota()
+ 7 SYSTEMPATH\CodeIgniter.php(466): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+ 8 SYSTEMPATH\CodeIgniter.php(349): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')

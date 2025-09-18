@@ -1,0 +1,25 @@
+<?php
+
+namespace App\Models;
+
+use CodeIgniter\Model;
+
+class PembayaranSimwa extends Model
+{
+    protected $table = 'pembayaran_simwa';
+    protected $primaryKey = 'id_pembayaran';
+    protected $allowedFields = ['id_pembayaran', 'nomor_anggota', 'nominal', 'status', 'bukti_pembayaran', 'timestamp'];
+    protected $autoIncrement = false;
+
+    protected $useTimestamps = true;
+    protected $dateFormat    = 'datetime';
+    protected $createdField  = 'waktu_pembayaran';
+    protected $updatedField  = 'updated_at';
+
+    public function getPembayaran()
+    {
+        return $this->db->table('pembayaran_simwa')
+            ->join('data_anggota', 'data_anggota.nomor_anggota=pembayaran_simwa.nomor_anggota')
+            ->get()->getResultArray();
+    }
+}

@@ -1,0 +1,6 @@
+CRITICAL - 2024-02-10 05:50:18 --> Too few arguments to function App\Controllers\Administrasi::view_surat_masuk(), 0 passed in /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/CodeIgniter.php on line 907 and exactly 1 expected
+in APPPATH/Controllers/Administrasi.php on line 129.
+ 1 SYSTEMPATH/CodeIgniter.php(907): App\Controllers\Administrasi->view_surat_masuk()
+ 2 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrasi))
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()

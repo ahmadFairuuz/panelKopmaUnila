@@ -1,0 +1,126 @@
+CRITICAL - 2023-01-05 21:04:51 --> Trying to get property 'id' of non-object
+in APPPATH\Views\dashboard\edit_progja.php on line 21.
+ 1 APPPATH\Views\dashboard\edit_progja.php(21): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get property \'id\' of non-object', 'APPPATH\\Views\\dashboard\\edit_progja.php', 21, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\dashboard\\edit_progja.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('/dashboard/edit_progja', [], true)
+ 5 APPPATH\Controllers\Dashboard.php(390): view('/dashboard/edit_progja', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Dashboard->edit_progja()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-05 21:05:42 --> Trying to get property 'id' of non-object
+in APPPATH\Views\dashboard\edit_progja.php on line 21.
+ 1 APPPATH\Views\dashboard\edit_progja.php(21): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get property \'id\' of non-object', 'APPPATH\\Views\\dashboard\\edit_progja.php', 21, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\dashboard\\edit_progja.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('/dashboard/edit_progja', [], true)
+ 5 APPPATH\Controllers\Dashboard.php(390): view('/dashboard/edit_progja', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Dashboard->edit_progja()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-05 21:05:54 --> Trying to get property 'deskripsi' of non-object
+in APPPATH\Views\dashboard\edit_progja.php on line 35.
+ 1 APPPATH\Views\dashboard\edit_progja.php(35): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get property \'deskripsi\' of non-object', 'APPPATH\\Views\\dashboard\\edit_progja.php', 35, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\dashboard\\edit_progja.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('/dashboard/edit_progja', [], true)
+ 5 APPPATH\Controllers\Dashboard.php(390): view('/dashboard/edit_progja', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Dashboard->edit_progja()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-01-05 21:13:39 --> mysqli_sql_exception: Unknown column 'program_kera.user' in 'where clause' in D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `program...', 0)
+#1 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `program...')
+#2 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `program...')
+#3 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `program...', Array, false)
+#4 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Coding\laragon\www\panelkopma\app\Controllers\Dashboard.php(294): CodeIgniter\BaseModel->findAll()
+#7 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\CodeIgniter.php(907): App\Controllers\Dashboard->program_kerja()
+#8 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#9 D:\Coding\laragon\www\panelkopma\vendor\codeigniter4\framework\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Coding\laragon\www\panelkopma\public\index.php(55): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-01-05 21:13:39 --> Unknown column 'program_kera.user' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `program_kerja`.`id`, `program_kerja`.`nama_program`, `program_kerja`.`deskripsi`, `program_kerja`.`rencana_pelaksanaan`, `users`.`username`, `program_kerja`.`status`
+FROM `program_kerja`
+JOIN `users` ON `program_kerja`.`user`=`users`.`id`
+WHERE `program_kera`.`user` = \'4\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `program_kerja`.`id`, `program_kerja`.`nama_program`, `program_kerja`.`deskripsi`, `program_kerja`.`rencana_pelaksanaan`, `users`.`username`, `program_kerja`.`status`
+FROM `program_kerja`
+JOIN `users` ON `program_kerja`.`user`=`users`.`id`
+WHERE `program_kera`.`user` = \'4\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `program_kerja`.`id`, `program_kerja`.`nama_program`, `program_kerja`.`deskripsi`, `program_kerja`.`rencana_pelaksanaan`, `users`.`username`, `program_kerja`.`status`
+FROM `program_kerja`
+JOIN `users` ON `program_kerja`.`user`=`users`.`id`
+WHERE `program_kera`.`user` = \'4\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `program_kerja`.`id`, `program_kerja`.`nama_program`, `program_kerja`.`deskripsi`, `program_kerja`.`rencana_pelaksanaan`, `users`.`username`, `program_kerja`.`status`
+FROM `program_kerja`
+JOIN `users` ON `program_kerja`.`user`=`users`.`id`
+WHERE `program_kera`.`user` = :program_kera.user:', [...], false)
+ 5 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Dashboard.php(294): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Dashboard->program_kerja()
+ 9 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-05 21:28:22 --> DateTimeZone::__construct(): Unknown or bad timezone (1)
+in SYSTEMPATH\I18n\Time.php on line 1083.
+ 1 SYSTEMPATH\I18n\Time.php(1083): DateTimeZone->__construct('1')
+ 2 SYSTEMPATH\I18n\Time.php(1058): CodeIgniter\I18n\Time->getUTCObject('2022-10-01', '1')
+ 3 APPPATH\Controllers\Keuangan.php(31): CodeIgniter\I18n\Time->difference('2022-10-01', '1')
+ 4 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Keuangan->data_simpanan()
+ 5 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keuangan))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-05 22:23:56 --> Undefined variable: date
+in APPPATH\Views\keuangan\data_simpanan.php on line 75.
+ 1 APPPATH\Views\keuangan\data_simpanan.php(75): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: date', 'APPPATH\\Views\\keuangan\\data_simpanan.php', 75, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\keuangan\\data_simpanan.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('keuangan/data_simpanan', [], true)
+ 5 APPPATH\Controllers\Keuangan.php(48): view('keuangan/data_simpanan', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Keuangan->data_simpanan()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keuangan))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-05 22:25:06 --> Undefined index: tanggal_pembuatan
+in APPPATH\Views\keuangan\data_simpanan.php on line 75.
+ 1 APPPATH\Views\keuangan\data_simpanan.php(75): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index: tanggal_pembuatan', 'APPPATH\\Views\\keuangan\\data_simpanan.php', 75, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\keuangan\\data_simpanan.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('keuangan/data_simpanan', [], true)
+ 5 APPPATH\Controllers\Keuangan.php(50): view('keuangan/data_simpanan', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Keuangan->data_simpanan()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keuangan))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-05 22:25:20 --> DateTimeZone::__construct(): Unknown or bad timezone (months)
+in SYSTEMPATH\I18n\Time.php on line 1083.
+ 1 SYSTEMPATH\I18n\Time.php(1083): DateTimeZone->__construct('months')
+ 2 SYSTEMPATH\I18n\Time.php(1058): CodeIgniter\I18n\Time->getUTCObject('2021-10-01', 'months')
+ 3 APPPATH\Views\keuangan\data_simpanan.php(75): CodeIgniter\I18n\Time->difference('2021-10-01', 'months')
+ 4 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\keuangan\\data_simpanan.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('keuangan/data_simpanan', [], true)
+ 7 APPPATH\Controllers\Keuangan.php(50): view('keuangan/data_simpanan', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Keuangan->data_simpanan()
+ 9 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keuangan))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-05 22:26:37 --> Call to undefined method CodeIgniter\I18n\TimeDifference::getMonth()
+in APPPATH\Views\keuangan\data_simpanan.php on line 76.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('keuangan/data_simpanan', [], true)
+ 4 APPPATH\Controllers\Keuangan.php(50): view('keuangan/data_simpanan', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Keuangan->data_simpanan()
+ 6 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Keuangan))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()

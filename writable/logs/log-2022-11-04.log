@@ -1,0 +1,11 @@
+CRITICAL - 2022-11-04 20:17:43 --> Trying to access array offset on value of type null
+in APPPATH/Views/psda/add_value.php on line 20.
+ 1 APPPATH/Views/psda/add_value.php(20): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to access array offset on value of type null', 'APPPATH/Views/psda/add_value.php', 20, [...])
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/psda/add_value.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1142): CodeIgniter\View\View->render('psda/add_value', [], true)
+ 5 APPPATH/Controllers/Psda.php(286): view('psda/add_value', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(907): App\Controllers\Psda->add_value('2924', 'Kopma_UL', '22')
+ 7 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Psda))
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()

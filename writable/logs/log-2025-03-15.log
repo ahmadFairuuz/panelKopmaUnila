@@ -1,0 +1,43 @@
+ERROR - 2025-03-15 21:20:23 --> Error connecting to the database: mysqli_sql_exception: Host 'localhost' is not allowed to connect to this MariaDB server in /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:171
+Stack trace:
+#0 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(171): mysqli->real_connect('127.0.0.1', 'u0715251_regfor...', 'SemangatPagi', 'u0715251_anggot...', 3306, '', 0)
+#1 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/Database/BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/Model.php(250): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/BaseModel.php(622): CodeIgniter\Model->doFirst()
+#6 /home/u0715251/panel_kopma/app/Controllers/Api.php(179): CodeIgniter\BaseModel->first()
+#7 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/CodeIgniter.php(907): App\Controllers\Api->presensi()
+#8 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+#9 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /home/u0715251/public_html/panel/index.php(55): CodeIgniter\CodeIgniter->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Host 'localhost' is not allowed to connect to this MariaDB server in /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:215
+Stack trace:
+#0 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/Database/BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/Database/BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/Model.php(250): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/BaseModel.php(622): CodeIgniter\Model->doFirst()
+#5 /home/u0715251/panel_kopma/app/Controllers/Api.php(179): CodeIgniter\BaseModel->first()
+#6 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/CodeIgniter.php(907): App\Controllers\Api->presensi()
+#7 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+#8 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/u0715251/public_html/panel/index.php(55): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-03-15 21:20:23 --> Unable to connect to the database.
+Main connection [MySQLi]: Host 'localhost' is not allowed to connect to this MariaDB server
+in SYSTEMPATH/Database/BaseConnection.php on line 418.
+ 1 SYSTEMPATH/Database/BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `data_kegiatan`
+WHERE `id_kegiatan` = :id_kegiatan:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH/Model.php(250): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(622): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/Api.php(179): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(907): App\Controllers\Api->presensi()
+ 7 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()

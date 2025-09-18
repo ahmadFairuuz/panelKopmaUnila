@@ -1,0 +1,6 @@
+CRITICAL - 2024-02-25 03:03:25 --> Call to a member function load() on null
+in APPPATH/Controllers/Psda.php on line 331.
+ 1 SYSTEMPATH/CodeIgniter.php(907): App\Controllers\Psda->upload_anggota()
+ 2 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Psda))
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()

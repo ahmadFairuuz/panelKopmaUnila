@@ -1,0 +1,19 @@
+CRITICAL - 2023-01-01 19:28:37 --> Too few arguments to function App\Controllers\Psda::add_value(), 0 passed in D:\Coding\XAMMP 7.4\htdocs\panelkopma\vendor\codeigniter4\framework\system\CodeIgniter.php on line 907 and exactly 3 expected
+in APPPATH\Controllers\Psda.php on line 340.
+ 1 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Psda->add_value()
+ 2 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Psda))
+ 3 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2023-01-01 19:29:57 --> Undefined index: data_anggota.nomor_anggota
+in APPPATH\Views\psda\data_poin.php on line 66.
+ 1 APPPATH\Views\psda\data_poin.php(66): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index: data_anggota.nomor_anggota', 'APPPATH\\Views\\psda\\data_poin.php', 66, [...])
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\psda\\data_poin.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('psda/data_poin', [], true)
+ 5 APPPATH\Controllers\Psda.php(337): view('psda/data_poin', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Psda->data_poin()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Psda))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(55): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')

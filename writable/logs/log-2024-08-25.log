@@ -1,0 +1,43 @@
+ERROR - 2024-08-25 09:56:01 --> mysqli_sql_exception: Column 'id_kegiatan' cannot be null in /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:292
+Stack trace:
+#0 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('INSERT INTO `pr...', 0)
+#1 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pr...')
+#2 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/Database/BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pr...')
+#3 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pr...', Array, false)
+#4 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+#5 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#6 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/Model.php(667): CodeIgniter\BaseModel->insert(Array, false)
+#7 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/BaseModel.php(658): CodeIgniter\Model->insert(Array, false)
+#8 /home/u0715251/panel_kopma/app/Controllers/Dashboard.php(264): CodeIgniter\BaseModel->save(Array)
+#9 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/CodeIgniter.php(907): App\Controllers\Dashboard->submit_presensi()
+#10 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#11 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 /home/u0715251/public_html/panel/index.php(55): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2024-08-25 09:56:01 --> Too few arguments to function App\Controllers\Dashboard::presensi(), 0 passed in /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/CodeIgniter.php on line 907 and exactly 1 expected
+in APPPATH/Controllers/Dashboard.php on line 165.
+ 1 SYSTEMPATH/CodeIgniter.php(907): App\Controllers\Dashboard->presensi()
+ 2 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-08-25 09:56:05 --> Too few arguments to function App\Controllers\Dashboard::presensi(), 0 passed in /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/CodeIgniter.php on line 907 and exactly 1 expected
+in APPPATH/Controllers/Dashboard.php on line 165.
+ 1 SYSTEMPATH/CodeIgniter.php(907): App\Controllers\Dashboard->presensi()
+ 2 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-08-25 20:18:05 --> mysqli_sql_exception: MySQL server has gone away in /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:292
+Stack trace:
+#0 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(292): mysqli->query('INSERT INTO `pe...', 0)
+#1 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/Database/BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pe...')
+#2 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/Database/BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pe...')
+#3 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pe...', Array, false)
+#4 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/Model.php(279): CodeIgniter\Database\BaseBuilder->insert()
+#5 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#6 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/Model.php(667): CodeIgniter\BaseModel->insert(Array, false)
+#7 /home/u0715251/panel_kopma/app/Controllers/Api.php(520): CodeIgniter\Model->insert(Array, false)
+#8 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/CodeIgniter.php(907): App\Controllers\Api->bayar_simwa()
+#9 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+#10 /home/u0715251/panel_kopma/vendor/codeigniter4/framework/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /home/u0715251/public_html/panel/index.php(55): CodeIgniter\CodeIgniter->run()
+#12 {main}
