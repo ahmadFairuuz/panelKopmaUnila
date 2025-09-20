@@ -216,15 +216,17 @@ class Humas extends BaseController
                 'nama_alumni'    => $s[0], // Nama
                 'nomor_anggota'  => $s[1], // Nomor Anggota
                 'npm'            => $s[2], // NPM
-                'jurusan'        => $s[3], // Jurusan
-                'fakultas'       => $s[4], // Fakultas
-                'jabatan'        => $s[5], // Jabatan
-                'jenis_kelamin'  => $s[6], // Jabatan
-                'email_alumni'   => $s[7], // Email
-                'no_hp_alumni'   => $s[8], // Nomor WA
-                'alamat_alumni'  => $s[9], // Alamat
-                'status_alumni'  => $s[10], // Status               
-                'tahun_lulus'    => $s[11], // Tahun Lulus
+                'tahun_masuk'    => $s[3], // NPM
+                'jurusan'        => $s[4], // Jurusan
+                'fakultas'       => $s[5], // Fakultas
+                'jabatan'        => $s[6], // Jabatan
+                'jenis_kelamin'  => $s[7], // Jabatan
+                'pekerjaan'      => $s[8], // Pekerjaan
+                'email_alumni'   => $s[9], // Email
+                'no_hp_alumni'   => $s[10], // Nomor WA
+                'alamat_alumni'  => $s[11], // Alamat
+                'status_alumni'  => $s[12], // Status               
+                'tahun_lulus'    => $s[13], // Tahun Lulus
                 
             ];
 
@@ -260,15 +262,17 @@ class Humas extends BaseController
         $sheet->setCellValue('A1', 'Nama');
         $sheet->setCellValue('B1', 'Nomor Anggota');
         $sheet->setCellValue('C1', 'NPM');
-        $sheet->setCellValue('D1', 'Jurusan');
-        $sheet->setCellValue('E1', 'Fakultas');
-        $sheet->setCellValue('F1', 'Jabatan');
-        $sheet->setCellValue('G1', 'Alamat');
-        $sheet->setCellValue('H1', 'Email');
-        $sheet->setCellValue('I1', 'Nomor WA');
-        $sheet->setCellValue('J1', 'Tahun Lulus');
-        $sheet->setCellValue('K1', 'Jenis Kelamin');
-        $sheet->setCellValue('L1', 'Status');
+        $sheet->setCellValue('D1', 'Tahun Masuk Kuliah');
+        $sheet->setCellValue('E1', 'Jurusan');
+        $sheet->setCellValue('F1', 'Fakultas');
+        $sheet->setCellValue('G1', 'Jabatan');
+        $sheet->setCellValue('H1', 'Alamat');
+        $sheet->setCellValue('I1', 'Email');
+        $sheet->setCellValue('J1', 'Nomor WA');
+        $sheet->setCellValue('K1', 'Tahun Lulus');
+        $sheet->setCellValue('L1', 'Jenis Kelamin');
+        $sheet->setCellValue('M1', 'Pekerjaan');
+        $sheet->setCellValue('N1', 'Status');
 
         // Isi data mulai baris ke-2
         $row = 2;
@@ -276,15 +280,17 @@ class Humas extends BaseController
             $sheet->setCellValue('A' . $row, $a['nama_alumni']);
             $sheet->setCellValue('B' . $row, $a['nomor_anggota']);
             $sheet->setCellValue('C' . $row, $a['npm']);
-            $sheet->setCellValue('D' . $row, $a['jurusan']);
-            $sheet->setCellValue('E' . $row, $a['fakultas']);
-            $sheet->setCellValue('F' . $row, $a['jabatan']);
-            $sheet->setCellValue('G' . $row, $a['alamat_alumni']);
-            $sheet->setCellValue('H' . $row, $a['email_alumni']);
-            $sheet->setCellValue('I' . $row, $a['no_hp_alumni']);
-            $sheet->setCellValue('J' . $row, $a['tahun_lulus']);
-            $sheet->setCellValue('K' . $row, $a['jenis_kelamin']);
-            $sheet->setCellValue('L' . $row, $a['status_alumni']);
+            $sheet->setCellValue('D' . $row, $a['tahun_masuk']);
+            $sheet->setCellValue('E' . $row, $a['jurusan']);
+            $sheet->setCellValue('F' . $row, $a['fakultas']);
+            $sheet->setCellValue('G' . $row, $a['jabatan']);
+            $sheet->setCellValue('H' . $row, $a['alamat_alumni']);
+            $sheet->setCellValue('I' . $row, $a['email_alumni']);
+            $sheet->setCellValue('J' . $row, $a['no_hp_alumni']);
+            $sheet->setCellValue('K' . $row, $a['tahun_lulus']);
+            $sheet->setCellValue('L' . $row, $a['jenis_kelamin']);
+            $sheet->setCellValue('M' . $row, $a['pekerjaan']);
+            $sheet->setCellValue('N' . $row, $a['status_alumni']);
             $row++;
         }
 

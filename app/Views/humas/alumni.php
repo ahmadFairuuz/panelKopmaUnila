@@ -11,7 +11,7 @@
                     </div>
                     <div class="card-body my-3">
                         <!-- Buat Konten Disini -->
-                         <?php
+                        <?php
                         if (session()->getFlashdata('success')) { ?>
                             <div class="row mx-1">
                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -48,7 +48,7 @@
                                             <i class="bi bi-upload me-1"></i>
                                             XLSX
                                         </button>
-                                        <a class="btn btn-primary btn-sm text-white d-flex align-items-center ml-1"  href="<?= base_url('humas/export_alumni') ?>">
+                                        <a class="btn btn-primary btn-sm text-white d-flex align-items-center ml-1" href="<?= base_url('humas/export_alumni') ?>">
                                             <i class="bi bi-file-earmark-excel me-1"></i> Export
                                         </a>
                                     </div>
@@ -76,6 +76,7 @@
                                         <th scope="col">Nama</th>
                                         <th scope="col">Nomor Anggota</th>
                                         <th scope="col">NPM</th>
+                                        <th scope="col">Tahun Masuk Kuliah</th>
                                         <th scope="col">Jurusan</th>
                                         <th scope="col">Fakultas</th>
                                         <th scope="col">Jabatan</th>
@@ -84,6 +85,7 @@
                                         <th scope="col">Nomor WA</th>
                                         <th scope="col">Tahun Lulus</th>
                                         <th scope="col">Jenis Kelamin</th>
+                                        <th scope="col">Pekerjaan</th>
                                         <th scope="col">Status</th>
                                         <th scope="col">Action</th>
                                     </tr>
@@ -98,6 +100,7 @@
                                             <td><?= $d->nama_alumni ?></td>
                                             <td><?= $d->nomor_anggota ?></td> <!-- Nomor Anggota (dummy) -->
                                             <td><?= $d->npm ?></td> <!-- Nomor Anggota (dummy) -->
+                                            <td><?= $d->tahun_masuk ?></td> <!-- Nomor Anggota (dummy) -->
                                             <td><?= $d->jurusan ?></td> <!-- Jurusan (dummy) -->
                                             <td><?= $d->fakultas ?></td> <!-- Fakultas (dummy) -->
                                             <td><?= $d->jabatan ?></td> <!-- Jabatan (dummy) -->
@@ -106,6 +109,7 @@
                                             <td><?= $d->no_hp_alumni ?></td>
                                             <td><?= $d->tahun_lulus ?></td>
                                             <td><?= $d->jenis_kelamin ?></td> <!-- Jenis Kelamin (dummy) -->
+                                            <td><?= $d->pekerjaan ?></td>
                                             <td><?= $d->status_alumni ?></td>
                                             <td>
                                                 <div class="row">

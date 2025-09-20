@@ -50,6 +50,22 @@ echo $this->section('main');
                                     </div>
                                 </div>
                             </div>
+                            <!-- TAHUN MASUK KULIAH -->
+                            <div class="row m-3 w-75">
+                                <label for="tahun_masuk" class="col-sm-3 col-form-label">Tahun Masuk Kuliah*</label>
+                                <div class="col-sm-9">
+                                    <input
+                                        type="number"
+                                        name="tahun_masuk"
+                                        id="tahun_masuk"
+                                        placeholder="isikan tahun masuk alumni"
+                                        class="form-control <?= ($validation->hasError('tahun_masuk') ? 'is-invalid' : '') ?>"
+                                        value="<?= old('tahun_masuk') ?>" min="1800" max="3000">
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('tahun_masuk') ?>
+                                    </div>
+                                </div>
+                            </div>
 
                             <!-- Jurusan -->
                             <div class="row m-3 w-75">
@@ -130,6 +146,16 @@ echo $this->section('main');
                                     </select>
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('jenis_kelamin') ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- PEKERJAAN ALUMNI -->
+                            <div class="row m-3 w-75">
+                                <label for="pekerjaan" class="col-sm-3 col-form-label">Pekerjaan</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="pekerjaan" id="pekerjaan" placeholder="Pekerjaan Alumni" class="form-control <?= ($validation->hasError('pekerjaan') ? 'is-invalid' : '') ?>" value="<?= old('pekerjaan') ?>">
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('pekerjaan') ?>
                                     </div>
                                 </div>
                             </div>

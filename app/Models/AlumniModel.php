@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Models;
-
 use CodeIgniter\Model;
 
 class AlumniModel extends Model
@@ -18,6 +17,7 @@ class AlumniModel extends Model
         'nama_alumni',
         'nomor_anggota',
         'npm',
+        'tahun_masuk',
         'jurusan',
         'fakultas',
         'jabatan',
@@ -26,6 +26,7 @@ class AlumniModel extends Model
         'alamat_alumni',
         'status_alumni',
         'jenis_kelamin',
+        'pekerjaan',
         'tahun_lulus',
         'slug_alumni'
     ];
