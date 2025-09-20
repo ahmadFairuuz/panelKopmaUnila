@@ -82,7 +82,17 @@ echo $this->section('main');
                             <div class="row m-3 w-75">
                                 <label for="fakultas" class="col-sm-3 col-form-label">Fakultas*</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="fakultas" id="fakultas" placeholder="Fakultas" class="form-control <?= ($validation->hasError('fakultas') ? 'is-invalid' : '') ?>" value="<?= old('fakultas') ?>">
+                                    <select type="text" class="form-select <?= ($validation->hasError('fakultas') ? 'is-invalid' : '') ?>" name="fakultas" id="fakultas">
+                                        <option selected>-- Pilih Fakultas --</option>
+                                        <option value="Fakultas Matematika dan Ilmu Pengetahuan Alam">Fakultas Matematika dan Ilmu Pengetahuan Alam</option>
+                                        <option value="Fakultas Keguruan dan Ilmu Pendidikan">Fakultas Keguruan dan Ilmu Pendidikan</option>
+                                        <option value="Fakultas Ilmu Sosial dan Ilmu Politik">Fakultas Ilmu Sosial dan Ilmu Politik</option>
+                                        <option value="Fakultas Ekonomi dan Bisnis">Fakultas Ekonomi dan Bisnis</option>
+                                        <option value="Fakultas Teknik">Fakultas Teknik</option>
+                                        <option value="Fakultas Pertanian">Fakultas Pertanian</option>
+                                        <option value="Fakultas Kedokteran">Fakultas Kedokteran</option>
+                                        <option value="Fakultas Hukum">Fakultas Hukum</option>
+                                    </select>
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('fakultas') ?>
                                     </div>

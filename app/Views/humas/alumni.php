@@ -126,19 +126,12 @@
                                                         </form>
                                                         <a href="<?= base_url(
                                                                         "humas/edit_alumni/" .
-                                                                            $d->slug_alumni,
+                                                                            $d->slug_alumni
                                                                     ) ?>"
                                                             class="ms-2 btn btn-sm btn-warning">
                                                             <i class="bi bi-pencil"></i>
                                                         </a>
-                                                        <!-- <form action="<?php
-                                                                            // base_url('humas/edit_alumni')
-                                                                            ?>" method="post">
-                                                        <input type="hidden" name="slug" value="<?= $d->slug_alumni ?>">
-                                                        <button type="submit" class="ms-2 btn btn-sm btn-warning">
-                                                            <i class="bi bi-pencil"></i>
-                                                        </button>
-                                                    </form> -->
+                                                    
                                                     </div>
                                                 </div>
                                             </td>
