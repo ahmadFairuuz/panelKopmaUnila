@@ -234,14 +234,14 @@ class Humas extends BaseController
             $slug = $this->alumniModel->create_slug($s[0]);
 
             if(!$slug) {
-                session()->setFlashdata('error', 'Data gagal ditambahkan');
+                session()->setFlashdata('error', 'Slug tidak valid / gagal ditambahkan');
                 return redirect()->to('/humas/alumni');
             }
 
             $save['slug_alumni'] = $slug;
 
             if (!$this->alumniModel->insert($save, false)) {
-                session()->setFlashdata('error', 'Data gagal ditambahkan');
+                session()->setFlashdata('error', 'Gagal menyimpan data alumni ke database');
                 return redirect()->to('/humas/alumni');
             }
         }
