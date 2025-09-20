@@ -81,6 +81,29 @@ class Humas extends BaseController
                     'max_length' => 'Tahun lulus harus 4 digit',
                 ]
             ],
+            'nomor_anggota' => [
+                'rules' => 'required|is_unique[alumni.nomor_anggota]',
+                'errors' => [
+                    'required' => 'Nomor Anggota harus diisi',
+                    'is_unique' => 'Nomor Anggota sudah terdaftar',
+                ]
+            ],
+            'npm' => [
+                'rules' => 'required|is_unique[alumni.npm]',
+                'errors' => [
+                    'required' => 'NPM harus diisi',
+                    'is_unique' => 'NPM sudah terdaftar',
+                ]
+            ],
+            'tahun_masuk' => [
+                'rules' => 'required|numeric|min_length[4]|max_length[4]',
+                'errors' => [
+                    'required' => 'Tahun masuk kuliah harus diisi',
+                    'numeric' => 'Tahun masuk kuliah harus berupa angka',
+                    'min_length' => 'Tahun masuk kuliah harus 4 digit',
+                    'max_length' => 'Tahun masuk kuliah harus 4 digit',
+                ]
+            ],
         ];
 
         if (!$this->validate($validation)) {
@@ -134,10 +157,11 @@ class Humas extends BaseController
                 ]
             ],
             'email_alumni' => [
-                'rules' => 'required|valid_email',
+                'rules' => 'required|valid_email|is_unique[alumni.email_alumni,id_alumni,{$id}',
                 'errors' => [
                     'required' => 'Email alumni harus diisi',
                     'valid_email' => 'Email alumni tidak valid',
+                    'is_unique' => 'Email alumni sudah terdaftar',
 
                 ]
             ],
@@ -152,6 +176,12 @@ class Humas extends BaseController
                 'rules' => 'required',
                 'errors' => [
                     'required' => 'Status alumni harus diisi',
+                ]
+            ],
+            'nomor_anggota' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nomor anggota harus diisi',
                 ]
             ],
             'tahun_lulus' => [
