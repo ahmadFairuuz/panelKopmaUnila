@@ -5,19 +5,16 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header mx-3 pt-4">
+                    <div class="card-header m-3">
                         <h3><?= $title ?></h3>
                     </div>
-                    <div class="card-body pt-3">
-                        <div class="row mx-1 mb-3">
+                    <div class="card-body">
+                        <div class="row my-2">
                             <div class="col d-flex justify-content-between align-items-center">
-                                <!-- Search Fiela -->
-                                <a class="btn btn-success btn-sm text-white align-items-center me-2 rounded-3" href="<?= base_url('admin/add_user') ?>">
+                                <a class="btn btn-success btn-sm text-white align-items-center rounded-3" href="<?= base_url('admin/add_user') ?>">
                                     <ion-icon name="add-outline"></ion-icon>
-                                    Add
+                                    Add User
                                 </a>
-                                <!-- Search Field -->
-                                <!-- </div> -->
                             </div>
                         </div>
                         <?php
@@ -33,8 +30,8 @@
                             session()->remove('pesan');
                         }
                         ?>
-                        <div class="container overflow-scroll">
-                            <table class="table table-striped table-responsive fs-6" style="font-size: 12px;" id="tableData">
+                        <div class="table-responsive">
+                            <table class="table table-striped fs-6" style="font-size: 12px;" id="tableData">
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
