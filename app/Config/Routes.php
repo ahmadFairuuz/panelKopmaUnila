@@ -35,19 +35,61 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+// Dashboard
 $routes->get('/', 'Dashboard::index');
 
+// Kegiatan
 $routes->get('/dashboard/kegiatan/(:any)', 'Dashboard::qr_code/$1');
-$routes->get('/psda/add_value/(:segment)', 'Psda::add_value/$1');
-$routes->get('/admin', 'Admin::index', ['filter' => 'role:admin']);
-$routes->get('/admin/index', 'Admin::index', ['filter' => 'role:admin']);
+$routes->get('/dashboard/data_kegiatan', 'Dashboard::data_kegiatan');
 
-// $routes->get('/logout', 'AuthController::logout');
-$routes->delete('/psda/delete_calon/(:num)', 'Psda::delete_calon/$1');
-$routes->delete('/psda/delete_anggota/(:any)', 'Psda::delete_anggota/$1');
-$routes->delete('/psda/delete_referal/(:any)', 'Psda::delete_referal/$1');
+// Humas (admin + humas + staff)
+$routes->group('humas', ['filter' => 'username:admin,humas,staff'], function ($routes) {
+    $routes->get('alumni', 'Humas::alumni');
+    $routes->post('save_alumni', 'Humas::save_alumni');
+    $routes->post('update_alumni', 'Humas::update_alumni');
+    $routes->delete('delete_alumni/(:any)', 'Humas::delete_alumni/$1', ['filter' => 'username:admin,humas']);
+});
 
-$routes->post('/api/update_biodata', 'Api::update_biodata');
+// Administrasi (admin + administrasi)
+$routes->group('administrasi', ['filter' => 'username:admin,administrasi'], function ($routes) {
+    $routes->get('surat_masuk', 'Administrasi::surat_masuk');
+    $routes->get('surat_keluar', 'Administrasi::surat_keluar');
+    $routes->get('digilib', 'Administrasi::digilib');
+});
+
+// PSDA (admin + psda + staff khusus data_anggota)
+$routes->group('psda', ['filter' => 'username:admin,psda,staff'], function ($routes) {
+    $routes->get('calon_anggota', 'Psda::calon_anggota', ['filter' => 'username:admin,psda']);
+    $routes->get('data_anggota', 'Psda::data_anggota');
+    $routes->get('data_poin', 'Psda::data_poin', ['filter' => 'username:admin,psda']);
+    $routes->get('kode_referal', 'Psda::kode_referal', ['filter' => 'username:admin,psda']);
+});
+
+// Usaha (admin + usaha)
+$routes->group('usaha', ['filter' => 'username:admin,usaha'], function ($routes) {
+    $routes->get('produk', 'Usaha::produk');
+});
+
+// Keuangan (admin + keuangan)
+$routes->group('keuangan', ['filter' => 'username:admin,keuangan'], function ($routes) {
+    $routes->get('data_simpanan', 'Keuangan::data_simpanan');
+    $routes->get('pembayaran_simwa', 'Keuangan::pembayaran_simwa');
+    $routes->get('laporan_keuangan', 'Keuangan::laporan_keuangan');
+});
+
+// Litbang (admin + litbang)
+$routes->group('litbang', ['filter' => 'username:admin,litbang'], function ($routes) {
+    $routes->get('survey_berjalan', 'Litbang::survey_berjalan');
+    $routes->get('hasil_survey', 'Litbang::hasil_survey');
+});
+
+// Admin Panel (hanya admin)
+$routes->group('admin', ['filter' => 'username:admin'], function ($routes) {
+    $routes->get('data_user', 'Admin::data_user');
+    $routes->get('akun_juko', 'Admin::akun_juko');
+});
+
+
 
 /*
  * --------------------------------------------------------------------

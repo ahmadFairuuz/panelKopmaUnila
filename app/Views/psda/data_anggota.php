@@ -104,6 +104,11 @@
                                         <td>
                                             <div class="row">
                                                 <div class="col-12 d-flex align-items-center">
+
+                                                    <!-- STAFF TDK BISA HAPUS ANGGOTA -->
+                                                    <?php
+                                                    if (! in_groups('staff humas')) {
+                                                    ?>
                                                     <form action="<?= base_url('psda/delete_anggota') ?>" method="POST">
                                                         <?= csrf_field(); ?>
                                                         <input type="hidden" name="nomor_anggota" value="<?= $d['nomor_anggota'] ?>">
@@ -111,6 +116,10 @@
                                                             <ion-icon name="trash-outline"></ion-icon>
                                                         </button>
                                                     </form>
+                                                    <?php
+                                                    }
+                                                    ?>
+
                                                     <form action="<?= base_url('psda/edit_anggota') ?>" method="post">
                                                         <input type="hidden" name="nomor_anggota" value="<?= $d['nomor_anggota'] ?>">
                                                         <button type="submit" class="ms-2 btn btn-sm btn-warning">
