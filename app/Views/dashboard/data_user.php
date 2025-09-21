@@ -31,18 +31,18 @@
                         }
                         ?>
                         <div class="table-responsive">
-                            <table class="table table-striped fs-6" style="font-size: 12px;" id="tableData">
+                            <table class="table table-striped"  id="tableData">
                                 <thead>
-                                    <tr>
+                                    <tr class="fs-3 fw-bold">
                                         <th scope="col">#</th>
-                                        <th scope="col">Username</th>
+                                        <th scope="col">Username </th>
                                         <th scope="col">Role</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <?php $i = 1;
                                 foreach ($user as $d) { ?>
-                                    <tr>
+                                    <tr class="fs-4 fw-semibold">
                                         <th scope="row"><?= $i++ ?></th>
                                         <td><?= $d->username ?></td>
                                         <td><?= ucwords($d->name) ?></td>
@@ -70,15 +70,5 @@
             <!-- Buat Konten Disini -->
         </div>
     </section>
-</main>
-<main>
-    <div class="container p-0">
-        <div class="row pt-3 mb-3">
-            <div class="col">
-                <h4 class="ps-3">User</h4>
-            </div>
-            <hr>
-        </div>
-    </div>
 </main>
 <?= $this->endSection() ?>
