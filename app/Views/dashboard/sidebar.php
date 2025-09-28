@@ -8,7 +8,7 @@
             <span class="d-none d-lg-block">Kopma Unila</span>
         </div>
         <i class="bi bi-list toggle-sidebar-btn"></i>
-        <span class="ms-3 fw-bold">Halo! <?php echo user()->username ?></span>
+        <span class="ms-3 fw-bold">Halo!                                         <?php echo user()->username ?></span>
     </div>
     <!-- End Logo -->
 </header>
@@ -39,8 +39,12 @@
             <hr>
         </li>
         <?php
-        if (! in_groups('panitia')) {
-        ?>
+            if (! in_groups('panitia')) {
+            ?>
+
+         <?php
+             if (! in_groups('staff humas')) {
+                 ?>
             <li class="nav-item">
                 <div class="nav-heading">Pengurus</div>
                 <a href="<?php echo base_url('/dashboard/program_kerja') ?>" class="nav-link collapsed px-3 d-flex">
@@ -51,10 +55,13 @@
             <li class="my-1">
                 <hr>
             </li>
+             <?php
+                 }
+                 ?>
 
             <?php
-            if (in_array(user()->username, ['admin', 'humas', 'staff'])):
-            ?>
+                if (in_array(user()->username, ['admin', 'humas', 'staff'])):
+                ?>
                 <li class="nav-item">
                     <div class="nav-heading">Humas</div>
                     <a href="<?php echo base_url('humas/alumni') ?>" class="nav-link collapsed px-3 d-flex">
@@ -63,13 +70,13 @@
                     </a>
                 </li>
             <?php
-            endif;
-            ?>
+                endif;
+                ?>
 
             <!-- ADMINISTRASI -->
             <?php
-            if (in_array(user()->username, ['administrasi', 'admin'])):
-            ?>
+                if (in_array(user()->username, ['administrasi', 'admin'])):
+                ?>
                 <li class="my-1">
                     <hr>
                 </li>
@@ -103,8 +110,8 @@
                     </li>
                 </div>
             <?php
-            endif;
-            ?>
+                endif;
+                ?>
 
             <!-- PSDA -->
             <!-- hanya admin & psda -->
@@ -130,8 +137,8 @@
                         </a>
                     </li>
                 <?php
-            endif;
-                ?>
+                    endif;
+                    ?>
 
                 <!-- Data Anggota khusus untuk staff / admin / psda -->
                 <?php if (in_array(user()->username, ['admin', 'psda', 'staff'])): ?>
@@ -152,8 +159,8 @@
                         </a>
                     </li>
                 <?php
-                endif;
-                ?>
+                    endif;
+                    ?>
 
                 <!-- hanya admin & psda -->
                 <?php if (in_array(user()->username, ['admin', 'psda'])): ?>
@@ -164,14 +171,14 @@
                         </a>
                     </li>
                 <?php
-                endif;
-                ?>
+                    endif;
+                    ?>
                 </div>
 
                 <!-- USAHA -->
                 <?php
-                if (in_array(user()->username, ['usaha', 'admin'])):
-                ?>
+                    if (in_array(user()->username, ['usaha', 'admin'])):
+                    ?>
                     <li class="my-1">
                         <hr>
                     </li>
@@ -183,13 +190,13 @@
                         </a>
                     </li>
                 <?php
-                endif;
-                ?>
+                    endif;
+                    ?>
 
                 <!-- KEUANGAN -->
                 <?php
-                if (in_array(user()->username, ['keuangan', 'admin'])):
-                ?>
+                    if (in_array(user()->username, ['keuangan', 'admin'])):
+                    ?>
                     <li class="my-1">
                         <hr>
                     </li>
@@ -223,13 +230,13 @@
                         </li>
                     </div>
                 <?php
-                endif;
-                ?>
+                    endif;
+                    ?>
 
                 <!-- LITBANG -->
                 <?php
-                if (in_array(user()->username, ['litbang', 'admin'])):
-                ?>
+                    if (in_array(user()->username, ['litbang', 'admin'])):
+                    ?>
                     <li class="my-1">
                         <hr>
                     </li>
@@ -257,15 +264,15 @@
                         </li>
                     </div>
                 <?php
-                endif;
-                ?>
+                    endif;
+                    ?>
 
                 <li class="my-2">
                     <hr>
                 </li>
                 <?php
-                if (in_groups('admin')) {
-                ?>
+                    if (in_groups('admin')) {
+                        ?>
                     <li class="nav-heading">Admin</li>
                     <li class="nav-item">
                         <a href="<?php echo base_url('admin/data_user') ?>" class="nav-link collapsed px-3 d-flex">
@@ -281,7 +288,7 @@
                     </li>
             <?php
                 }
-            }
+                }
             ?>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="<?php echo base_url('/logout') ?>">
