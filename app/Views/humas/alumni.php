@@ -114,6 +114,10 @@
                                             <td>
                                                 <div class="row">
                                                     <div class="col-12 d-flex align-items-center">
+                                                        <!-- STAFF TDK BISA HAPUS ALUMNI -->
+                                                    <?php
+                                                    if (! in_groups('staff humas')) {
+                                                    ?>
                                                         <form action="<?= base_url(
                                                                             "humas/delete_alumni",
                                                                         ) ?>" method="POST">
@@ -124,6 +128,9 @@
                                                                 <ion-icon name="trash-outline"></ion-icon>
                                                             </button>
                                                         </form>
+                                                    <?php
+                                                    };
+                                                    ?>
                                                         <a href="<?= base_url(
                                                                         "humas/edit_alumni/" .
                                                                             $d->slug_alumni
@@ -131,7 +138,6 @@
                                                             class="ms-2 btn btn-sm btn-warning">
                                                             <i class="bi bi-pencil"></i>
                                                         </a>
-                                                    
                                                     </div>
                                                 </div>
                                             </td>
