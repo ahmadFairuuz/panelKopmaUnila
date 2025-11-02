@@ -73,7 +73,6 @@ class Api extends BaseController
                     'required' => 'Nomor Anggota tidak boleh kosong',
                 ],
             ],
-
         ];
 
         if (!$this->validate($validation)) {
@@ -90,7 +89,7 @@ class Api extends BaseController
 
         $data = [
             'password' => password_hash($password, PASSWORD_DEFAULT),
-            'nomor_anggota' => $nomor_anggota
+            'nomor_anggota' => $nomor_anggota,
         ];
 
         if (!$this->akun_juko->save($data)) {
@@ -100,7 +99,7 @@ class Api extends BaseController
         $response = [
             'status' => 200,
             'error' => false,
-            'messages' => 'Berhasil mereset password'
+            'messages' => 'Berhasil mereset password',
         ];
         return $this->respond($response, 200);
     }
@@ -129,12 +128,14 @@ class Api extends BaseController
         if (!$data_simpanan || !$data_poin) {
             return $this->failNotFound('Data tidak ditemukan');
         }
-        
+
         $tagihan = $data_simpanan['tagihan'];
-        $data_poin = (($data_simpanan['simpanan_wajib'] / 10000) * 3) + $data_poin['poin'];
-        if($tagihan < 0 || $tagihan == null) {
-$tagihan = 0;
-}
+        
+        //RUMUS POIN x5 Setiap 10.000
+        $data_poin = ($data_simpanan['simpanan_wajib'] / 10000) * 5 + $data_poin['poin'];
+        if ($tagihan < 0 || $tagihan == null) {
+            $tagihan = 0;
+        }
 
         $response = [
             'status' => 200,
@@ -146,7 +147,7 @@ $tagihan = 0;
                 'simpanan_pokok' => $data_simpanan['simpanan_pokok'],
                 'tagihan' => (float) $tagihan,
                 'poin' => $data_poin,
-            ]
+            ],
         ];
 
         return $this->respond($response, 200);
@@ -198,7 +199,6 @@ $tagihan = 0;
             return $this->failServerError('Gagal melakukan presensi');
         }
 
-
         $response = [
             'status' => 200,
             'error' => false,
@@ -209,7 +209,7 @@ $tagihan = 0;
                 'id_kegiatan' => $id_kegiatan,
                 'nama_kegiatan' => $kegiatan['nama_kegiatan'],
                 'waktu' => Time::now('Asia/Jakarta', 'id_ID')->getTimestamp(),
-            ]
+            ],
         ];
 
         return $this->respond($response, 200);
@@ -222,8 +222,7 @@ $tagihan = 0;
             $max = $this->request->getVar('max');
         }
 
-        $survey = $this->survey_berjalan->select('id, nama_survey, deskripsi, tgl_mulai, tgl_selesai, link')
-            ->orderBy('tgl_mulai', 'ASC')->where('tgl_selesai >= ', Time::now())->findAll($max);
+        $survey = $this->survey_berjalan->select('id, nama_survey, deskripsi, tgl_mulai, tgl_selesai, link')->orderBy('tgl_mulai', 'ASC')->where('tgl_selesai >= ', Time::now())->findAll($max);
 
         if (!$survey) {
             return $this->failNotFound('Data tidak ditemukan');
@@ -233,7 +232,7 @@ $tagihan = 0;
             'status' => 200,
             'error' => false,
             'messages' => 'Berhasil mendapatkan data',
-            'data' => $survey
+            'data' => $survey,
         ];
 
         return $this->respond($response, 200);
@@ -251,11 +250,16 @@ $tagihan = 0;
             $page = $this->request->getVar('page');
         }
         if ($search) {
-            $report = $this->hasil_survey->select('id_laporan, nama_survey, deskripsi, tanggal_mulai, tanggal_selesai, jumlah_responden, file')
-                ->like('nama_survey', $search)->orderBy('tanggal_selesai', 'DESC')->findAll($max, ($page - 1) * $max);
+            $report = $this->hasil_survey
+                ->select('id_laporan, nama_survey, deskripsi, tanggal_mulai, tanggal_selesai, jumlah_responden, file')
+                ->like('nama_survey', $search)
+                ->orderBy('tanggal_selesai', 'DESC')
+                ->findAll($max, ($page - 1) * $max);
         } else {
-            $report = $this->hasil_survey->select('id_laporan, nama_survey, deskripsi, tanggal_mulai, tanggal_selesai, jumlah_responden, file')
-                ->orderBy('tanggal_selesai', 'DESC')->findAll($max, ($page - 1) * $max);
+            $report = $this->hasil_survey
+                ->select('id_laporan, nama_survey, deskripsi, tanggal_mulai, tanggal_selesai, jumlah_responden, file')
+                ->orderBy('tanggal_selesai', 'DESC')
+                ->findAll($max, ($page - 1) * $max);
         }
 
         if (!$report) {
@@ -269,7 +273,7 @@ $tagihan = 0;
             'status' => 200,
             'error' => false,
             'messages' => 'Berhasil mendapatkan data',
-            'data' => $report
+            'data' => $report,
         ];
 
         return $this->respond($response, 200);
@@ -287,11 +291,16 @@ $tagihan = 0;
             $page = $this->request->getVar('page');
         }
         if ($search) {
-            $produk = $this->produk_usaha->select('id_produk, nama_produk, harga_produk, gambar_produk')
-                ->like('nama_produk', $search)->orderBy('nama_produk', 'ASC')->findAll($max, ($page - 1) * $max);
+            $produk = $this->produk_usaha
+                ->select('id_produk, nama_produk, harga_produk, gambar_produk')
+                ->like('nama_produk', $search)
+                ->orderBy('nama_produk', 'ASC')
+                ->findAll($max, ($page - 1) * $max);
         } else {
-            $produk = $this->produk_usaha->select('id_produk, nama_produk, harga_produk, gambar_produk')
-                ->orderBy('nama_produk', 'ASC')->findAll($max, ($page - 1) * $max);
+            $produk = $this->produk_usaha
+                ->select('id_produk, nama_produk, harga_produk, gambar_produk')
+                ->orderBy('nama_produk', 'ASC')
+                ->findAll($max, ($page - 1) * $max);
         }
 
         if (!$produk) {
@@ -305,7 +314,7 @@ $tagihan = 0;
             'status' => 200,
             'error' => false,
             'messages' => 'Berhasil mendapatkan data',
-            'data' => $produk
+            'data' => $produk,
         ];
 
         return $this->respond($response, 200);
@@ -323,11 +332,18 @@ $tagihan = 0;
             $page = $this->request->getVar('page');
         }
         if ($search) {
-            $report = $this->laporan_keuangan->select('id, judul, bulan, tahun, file')
-                ->like('judul', $search)->orderBy('tahun', 'DESC')->orderBy('bulan', 'DESC')->findAll($max, ($page - 1) * $max);
+            $report = $this->laporan_keuangan
+                ->select('id, judul, bulan, tahun, file')
+                ->like('judul', $search)
+                ->orderBy('tahun', 'DESC')
+                ->orderBy('bulan', 'DESC')
+                ->findAll($max, ($page - 1) * $max);
         } else {
-            $report = $this->laporan_keuangan->select('id, judul, bulan, tahun, file')
-                ->orderBy('tahun', 'DESC')->orderBy('bulan', 'DESC')->findAll($max, ($page - 1) * $max);
+            $report = $this->laporan_keuangan
+                ->select('id, judul, bulan, tahun, file')
+                ->orderBy('tahun', 'DESC')
+                ->orderBy('bulan', 'DESC')
+                ->findAll($max, ($page - 1) * $max);
         }
 
         if (!$report) {
@@ -342,7 +358,7 @@ $tagihan = 0;
             'error' => false,
 
             'messages' => 'Berhasil mendapatkan data',
-            'data' => $report
+            'data' => $report,
         ];
 
         return $this->respond($response, 200);
@@ -354,8 +370,8 @@ $tagihan = 0;
             'nomor_anggota' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Nomor anggota harus diisi'
-                ]
+                    'required' => 'Nomor anggota harus diisi',
+                ],
             ],
         ];
         if (!$this->validate($validation)) {
@@ -364,8 +380,7 @@ $tagihan = 0;
 
         $nomor_anggota = $this->request->getVar('nomor_anggota');
 
-        $data = $this->data_anggota->select('nomor_anggota, npm, nama_lengkap, email, jenis_kelamin, nomor_hp, jurusan, fakultas')
-            ->where('nomor_anggota', $nomor_anggota)->first();
+        $data = $this->data_anggota->select('nomor_anggota, npm, nama_lengkap, email, jenis_kelamin, nomor_hp, jurusan, fakultas')->where('nomor_anggota', $nomor_anggota)->first();
         if (!$data) {
             return $this->failNotFound('Data tidak ditemukan');
         }
@@ -374,7 +389,7 @@ $tagihan = 0;
             'status' => 200,
             'error' => false,
             'messages' => 'Berhasil mendapatkan data',
-            'data' => $data
+            'data' => $data,
         ];
 
         return $this->respond($response, 200);
@@ -386,58 +401,60 @@ $tagihan = 0;
             'nomor_anggota' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Nomor anggota harus diisi'
-                ]
+                    'required' => 'Nomor anggota harus diisi',
+                ],
             ],
             'npm' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'NPM harus diisi'
-                ]
+                    'required' => 'NPM harus diisi',
+                ],
             ],
             'nama_lengkap' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Nama lengkap harus diisi'
-                ]
+                    'required' => 'Nama lengkap harus diisi',
+                ],
             ],
             'email' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Email harus diisi'
-                ]
+                    'required' => 'Email harus diisi',
+                ],
             ],
             'jenis_kelamin' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Jenis kelamin harus diisi'
-                ]
+                    'required' => 'Jenis kelamin harus diisi',
+                ],
             ],
             'nomor_hp' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Nomor HP harus diisi'
-                ]
+                    'required' => 'Nomor HP harus diisi',
+                ],
             ],
             'jurusan' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => 'Jurusan harus diisi',
-                ]
+                ],
             ],
             'fakultas' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => 'Fakultas harus diisi',
-                ]
+                ],
             ],
         ];
         if (!$this->validate($validation)) {
             return $this->failValidationErrors($this->validator->getErrors());
         }
 
-        $data = $this->data_anggota->select('nomor_anggota')
-            ->like('nomor_anggota', $this->request->getVar('nomor_anggota'))->first();
+        $data = $this->data_anggota
+            ->select('nomor_anggota')
+            ->like('nomor_anggota', $this->request->getVar('nomor_anggota'))
+            ->first();
 
         if (!$data) {
             return $this->failNotFound('Data tidak ditemukan');
@@ -473,23 +490,23 @@ $tagihan = 0;
             'nomor_anggota' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Nomor anggota harus diisi'
-                ]
+                    'required' => 'Nomor anggota harus diisi',
+                ],
             ],
             'nominal' => [
                 'rules' => 'required|numeric',
                 'errors' => [
                     'required' => 'Nominal harus diisi',
-                    'numeric' => 'Nominal harus berupa angka'
-                ]
+                    'numeric' => 'Nominal harus berupa angka',
+                ],
             ],
             'bukti_pembayaran' => [
                 'rules' => 'uploaded[bukti_pembayaran]|max_size[bukti_pembayaran,2048]|ext_in[bukti_pembayaran,png,jpg,jpeg]',
                 'errors' => [
                     'uploaded' => 'Bukti pembayaran harus diisi',
                     'max_size' => 'Ukuran file maksimal 2 MB',
-                    'ext_in' => 'Ekstensi file harus berupa PNG, JPG, atau JPEG'
-                ]
+                    'ext_in' => 'Ekstensi file harus berupa PNG, JPG, atau JPEG',
+                ],
             ],
         ];
 
@@ -497,8 +514,10 @@ $tagihan = 0;
             return $this->failValidationErrors($this->validator->getErrors());
         }
 
-        $data = $this->data_anggota->select('nomor_anggota')
-            ->where('nomor_anggota', $this->request->getVar('nomor_anggota'))->first();
+        $data = $this->data_anggota
+            ->select('nomor_anggota')
+            ->where('nomor_anggota', $this->request->getVar('nomor_anggota'))
+            ->first();
 
         if (!$data) {
             return $this->failNotFound('Data tidak ditemukan');
@@ -532,7 +551,6 @@ $tagihan = 0;
 
     public function history_pembayaran()
     {
-
         $max = 10;
         $page = 1;
         if ($this->request->getVar('max')) {
@@ -546,8 +564,8 @@ $tagihan = 0;
             'nomor_anggota' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => 'Nomor anggota harus diisi'
-                ]
+                    'required' => 'Nomor anggota harus diisi',
+                ],
             ],
         ];
 
@@ -563,14 +581,16 @@ $tagihan = 0;
             return $this->failNotFound('Data anggota tidak ditemukan');
         }
 
-        $history = $this->bayar_simwa->select('id_pembayaran, timestamp, nominal, status')
-            ->where('nomor_anggota', $nomor_anggota)->findAll($max, ($page - 1) * $max);
+        $history = $this->bayar_simwa
+            ->select('id_pembayaran, timestamp, nominal, status')
+            ->where('nomor_anggota', $nomor_anggota)
+            ->findAll($max, ($page - 1) * $max);
 
         $response = [
             'status' => 200,
             'error' => false,
             'messages' => 'Berhasil mengambil data',
-            'data' => ($history ? $history : []),
+            'data' => $history ? $history : [],
         ];
 
         return $this->respond($response, 200);
@@ -586,8 +606,11 @@ $tagihan = 0;
         if ($this->request->getVar('page')) {
             $page = $this->request->getVar('page');
         }
-        $kegiatan = $this->data_kegiatan->select('id_kegiatan, nama_kegiatan, tanggal_kegiatan, tempat_kegiatan')
-            ->orderBy('tanggal_kegiatan', 'DESC')->where('tanggal_kegiatan>', Time::today('Asia/Jakarta'))->findAll($max, ($page - 1) * $max);
+        $kegiatan = $this->data_kegiatan
+            ->select('id_kegiatan, nama_kegiatan, tanggal_kegiatan, tempat_kegiatan')
+            ->orderBy('tanggal_kegiatan', 'DESC')
+            ->where('tanggal_kegiatan>', Time::today('Asia/Jakarta'))
+            ->findAll($max, ($page - 1) * $max);
 
         if (!$kegiatan) {
             return $this->failNotFound('Data kegiatan tidak ditemukan');

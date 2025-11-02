@@ -459,6 +459,13 @@ class Psda extends BaseController
         return redirect()->to('/psda/calon_anggota');
     }
 
+     public function delete_semua_calon($npm)
+    {
+        $this->calon_anggota->delete($npm);
+        session()->setFlashdata('pesan', 'Data berhasil dihapus');
+        return redirect()->to('/psda/calon_anggota');
+    }
+
     public function download_calon()
     {
         $filename = 'calon_anggota.xlsx';
