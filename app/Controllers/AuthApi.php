@@ -26,7 +26,11 @@ class AuthApi extends BaseController
     {
         $nomor_anggota = $this->request->getVar('nomor_anggota');
         $password = $this->request->getVar('password');
-        $username = substr($nomor_anggota, 0, 4) . substr($nomor_anggota, -2);
+        
+        // Bersihkan dan parse nomor anggota
+        $nomor_anggota_clean = trim($nomor_anggota);
+        $parts = explode('/', $nomor_anggota_clean);
+        $username = $parts[0] . $parts[2];
 
         $validation = [
             'nomor_anggota' => [
@@ -34,16 +38,16 @@ class AuthApi extends BaseController
                 'rules' => 'required',
                 'errors' => [
                     'required' => '{field} tidak boleh kosong',
-                ]
+                ],
             ],
             'password' => [
                 'label' => 'Password',
                 'rules' => 'required|min_length[4]',
                 'errors' => [
                     'required' => '{field} tidak boleh kosong',
-                    'min_length' => '{field} minimal 4 karakter'
-                ]
-            ]
+                    'min_length' => '{field} minimal 4 karakter',
+                ],
+            ],
         ];
 
         if (!$this->validate($validation)) {
@@ -73,7 +77,7 @@ class AuthApi extends BaseController
             'status' => 201,
             'error' => null,
             'messages' => [
-                'success' => 'Berhasil Mendaftar'
+                'success' => 'Berhasil Mendaftar',
             ],
         ];
 
@@ -91,16 +95,16 @@ class AuthApi extends BaseController
                 'rules' => 'required',
                 'errors' => [
                     'required' => '{field} tidak boleh kosong',
-                ]
+                ],
             ],
             'password' => [
                 'label' => 'Password',
                 'rules' => 'required|min_length[4]',
                 'errors' => [
                     'required' => '{field} tidak boleh kosong',
-                    'min_length' => '{field} minimal 4 karakter'
-                ]
-            ]
+                    'min_length' => '{field} minimal 4 karakter',
+                ],
+            ],
         ];
 
         if (!$this->validate($validation)) {
@@ -129,7 +133,7 @@ class AuthApi extends BaseController
                 'username' => $username,
                 'jurusan' => $data['jurusan'],
             ],
-            'access_token' => createJWT($username)
+            'access_token' => createJWT($username),
         ];
 
         return $this->respond($response, 200);

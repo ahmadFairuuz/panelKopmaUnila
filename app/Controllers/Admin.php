@@ -16,11 +16,11 @@ class Admin extends BaseController
 
     public function __construct()
     {
-        $this->data_user    = new UserModel();
-        $this->group        = new GroupUserModel();
-        $this->akun         = new SiJukoAccount();
+        $this->data_user = new UserModel();
+        $this->group = new GroupUserModel();
+        $this->akun = new SiJukoAccount();
         $this->data_anggota = new AnggotaModel();
-        if (! in_groups('admin')) {
+        if (!in_groups('admin')) {
             return redirect()->to('/dashboard');
         }
     }
@@ -31,11 +31,10 @@ class Admin extends BaseController
 
     public function data_user()
     {
-        $user = $this->data_user->join('auth_groups_users', 'auth_groups_users.user_id=users.id')
-            ->join('auth_groups', 'auth_groups.id = auth_groups_users.group_id')->findAll();
+        $user = $this->data_user->join('auth_groups_users', 'auth_groups_users.user_id=users.id')->join('auth_groups', 'auth_groups.id = auth_groups_users.group_id')->findAll();
         $data = [
             'title' => 'Data User',
-            'user'  => $user,
+            'user' => $user,
         ];
 
         return view('/dashboard/data_user', $data);
@@ -46,9 +45,9 @@ class Admin extends BaseController
         $group_list = $this->group->getGroup();
 
         $data = [
-            'title'      => 'Tambah User',
+            'title' => 'Tambah User',
             'validation' => \Config\Services::validation(),
-            'role'       => $group_list,
+            'role' => $group_list,
         ];
 
         return view('/auth/register', $data);
@@ -59,9 +58,9 @@ class Admin extends BaseController
         $user = $this->data_user->where('username', $this->request->getVar('id'))->first();
         // dd($user->id);
         $data = [
-            'title'      => 'Reset Password',
+            'title' => 'Reset Password',
             'validation' => \Config\Services::validation(),
-            'user'       => $user,
+            'user' => $user,
         ];
 
         return view('/auth/reset_password', $data);
@@ -70,17 +69,17 @@ class Admin extends BaseController
     public function attempt_reset()
     {
         // dd($this->request->getVar());
-        $new        = $this->request->getVar();
+        $new = $this->request->getVar();
         $validation = [
-            'password'     => [
-                'rules'  => 'required|min_length[4]',
+            'password' => [
+                'rules' => 'required|min_length[4]',
                 'errors' => [
-                    'required'   => 'Password harus diisi.',
+                    'required' => 'Password harus diisi.',
                     'min_length' => 'Password minimal 4 karakter.',
                 ],
             ],
             'pass_confirm' => [
-                'rules'  => 'required|matches[password]',
+                'rules' => 'required|matches[password]',
                 'errors' => [
                     'required' => 'Konfirm password harus diisi.',
                 ],
@@ -88,21 +87,26 @@ class Admin extends BaseController
         ];
         // dd($new);
 
-        if (! $this->validate($validation)) {
+        if (!$this->validate($validation)) {
             // dd('gagal validasi');
-            echo '<script>alert("Gagal validasi")</script>';
+            echo '<script>
+                alert("Gagal validasi")
+            </script>';
             return redirect()->to('/admin/reset_password')->withInput();
         }
         // dd($new);
         $reset = [
-            'id'            => $new['id'],
+            'id' => $new['id'],
             'password_hash' => password_hash($new['password'], PASSWORD_DEFAULT),
         ];
-        if (! $this->data_user->save($reset)) {
-            dd("gagal");
-            session()->setFlashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        if (!$this->data_user->save($reset)) {
+            dd('gagal');
+            session()->setFlashdata(
+                'pesan',
+                '<div class="alert alert-danger alert-dismissible fade show" role="alert">
             <strong>Gagal!</strong> Password gagal direset.
-            <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>');
+            <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>',
+            );
             return redirect()->to('/admin/reset_password')->withInput();
         }
         session()->setFlashdata('pesan', '<strong>Berhasil!</strong> Password berhasil direset.');
@@ -115,17 +119,17 @@ class Admin extends BaseController
 
         $user = $this->data_user->where('username', $username)->first();
 
-        if (! $user) {
+        if (!$user) {
             session()->setFlashdata('pesan', '<strong>Gagal!</strong> User tidak ditemukan.');
             return redirect()->to('/admin/data_user');
         }
 
         $userId = $user->id; // ambil id dari user
 
-// hapus group
+        // hapus group
         $this->group->deleteFromGroup($userId);
 
-// hapus user
+        // hapus user
         if ($this->data_user->delete($userId)) {
             session()->setFlashdata('pesan', '<strong>Berhasil!</strong> User berhasil dihapus.');
         } else {
@@ -137,64 +141,64 @@ class Admin extends BaseController
 
     public function register()
     {
-        $akun       = $this->request->getVar();
+        $akun = $this->request->getVar();
         $validation = [
-            'email'        => [
-                'rules'  => 'required|valid_email|is_unique[users.email]',
+            'email' => [
+                'rules' => 'required|valid_email|is_unique[users.email]',
                 'errors' => [
-                    'required'    => 'Email harus diisi.',
+                    'required' => 'Email harus diisi.',
                     'valid_email' => 'Email tidak valid.',
-                    'is_unique'   => 'Email sudah terdaftar.',
+                    'is_unique' => 'Email sudah terdaftar.',
                 ],
             ],
-            'username'     => [
-                'rules'  => 'required|is_unique[users.username]',
+            'username' => [
+                'rules' => 'required|is_unique[users.username]',
                 'errors' => [
-                    'required'  => 'Username harus diisi',
+                    'required' => 'Username harus diisi',
                     'is_unique' => 'Username sudah terdaftar',
                 ],
             ],
-            'password'     => [
-                'rules'  => 'required|min_length[4]',
+            'password' => [
+                'rules' => 'required|min_length[4]',
                 'errors' => [
-                    'required'   => 'Password harus diisi.',
+                    'required' => 'Password harus diisi.',
                     'min_length' => 'Password minimal 4 karakter.',
                 ],
             ],
             'pass_confirm' => [
-                'rules'  => 'required|matches[password]',
+                'rules' => 'required|matches[password]',
                 'errors' => [
                     'required' => 'Konfirmasi password harus diisi.',
-                    'matches'  => 'Password tidak sama.',
+                    'matches' => 'Password tidak sama.',
                 ],
             ],
-            'role'         => [
-                'rules'  => 'required',
+            'role' => [
+                'rules' => 'required',
                 'errors' => [
                     'required' => 'Role harus dipilih.',
                 ],
             ],
         ];
 
-        if (! $this->validate($validation)) {
+        if (!$this->validate($validation)) {
             return redirect()->to('/admin/add_user')->withInput();
         }
 
         $data = [
-            'email'         => $akun['email'],
-            'username'      => $akun['username'],
+            'email' => $akun['email'],
+            'username' => $akun['username'],
             'password_hash' => password_hash($akun['password'], PASSWORD_DEFAULT),
-            'active'        => 1,
+            'active' => 1,
         ];
 
-        if (! $this->data_user->save($data)) {
+        if (!$this->data_user->save($data)) {
             session()->setFlashdata('pesan', '<strong>Gagal!</strong> User gagal ditambahkan.');
             return redirect()->to('/admin/add_user');
         }
 
         $user = $this->data_user->where('email', $akun['email'])->first();
 
-        if (! $this->group->saveGroup($user->id, $akun['role'])) {
+        if (!$this->group->saveGroup($user->id, $akun['role'])) {
             $this->data_user->delete($user->id);
             session()->setFlashdata('pesan', '<strong>Gagal!</strong> User gagal ditambahkan.');
             return redirect()->to('/admin/data_user');
@@ -209,14 +213,13 @@ class Admin extends BaseController
         // dd(Time::now());
         $search = $this->request->getVar('search');
         if ($search) {
-            $account = $this->akun->select('data_anggota.nama_lengkap, akun.nomor_anggota, akun.username')->join('data_anggota', 'data_anggota.nomor_anggota=akun.nomor_anggota')->like('akun.nomor_anggota', $search)->orLike('akun.username', $search)
-                ->orLike('data_anggota.nama_lengkap', $search)->findAll();
+            $account = $this->akun->select('data_anggota.nama_lengkap, akun.nomor_anggota, akun.username')->join('data_anggota', 'data_anggota.nomor_anggota=akun.nomor_anggota')->like('akun.nomor_anggota', $search)->orLike('akun.username', $search)->orLike('data_anggota.nama_lengkap', $search)->findAll();
         } else {
             $account = $this->akun->select('data_anggota.nama_lengkap, akun.nomor_anggota, akun.username')->join('data_anggota', 'data_anggota.nomor_anggota=akun.nomor_anggota')->findAll();
         }
         $data = [
             'title' => 'Akun Si Juko',
-            'akun'  => $account,
+            'akun' => $account,
         ];
 
         return view('dashboard/akun_juko', $data);
@@ -224,12 +227,11 @@ class Admin extends BaseController
 
     public function add_akun()
     {
-
         $nomor = $this->data_anggota->select('nomor_anggota')->findAll();
 
         $data = [
-            'title'         => 'Tambah Akun Si Juko',
-            'validation'    => \Config\Services::validation(),
+            'title' => 'Tambah Akun Si Juko',
+            'validation' => \Config\Services::validation(),
             'nomor_anggota' => $nomor,
         ];
 
@@ -242,46 +244,46 @@ class Admin extends BaseController
         // dd($input);
         $validation = [
             'nomor_anggota' => [
-                'rules'  => 'required|is_unique[akun.nomor_anggota]',
+                'rules' => 'required|is_unique[akun.nomor_anggota]',
                 'errors' => [
-                    'required'  => 'Nomor anggota harus diisi.',
-                    'matches'   => 'Nomor Anggota tidak ditemukan.',
+                    'required' => 'Nomor anggota harus diisi.',
+                    'matches' => 'Nomor Anggota tidak ditemukan.',
                     'is_unique' => 'Nomor anggota sudah terdaftar.',
                 ],
             ],
 
-            'password'      => [
-                'rules'  => 'required|min_length[4]',
+            'password' => [
+                'rules' => 'required|min_length[4]',
                 'errors' => [
-                    'required'   => 'Password harus diisi',
+                    'required' => 'Password harus diisi',
                     'min_length' => 'Password minimal 4 karakter',
                 ],
             ],
-            'pass_confirm'  => [
-                'rules'  => 'required|matches[password]',
+            'pass_confirm' => [
+                'rules' => 'required|matches[password]',
                 'errors' => [
                     'required' => 'Konfirmasi password harus diisi',
-                    'matches'  => 'Password tidak sama',
+                    'matches' => 'Password tidak sama',
                 ],
             ],
         ];
 
-        if (! $this->validate($validation)) {
+        if (!$this->validate($validation)) {
             return redirect()->to('/admin/add_akun')->withInput();
         }
         $exist = $this->data_anggota->like('nomor_anggota', $input['nomor_anggota'])->first();
-        if (! $exist) {
+        if (!$exist) {
             session()->setFlashdata('error', '<strong>Gagal!</strong> Nomor anggota tidak ditemukan.');
             return redirect()->to('/admin/add_akun');
         }
-
+        $parts = explode('/', $input['nomor_anggota']);
         $data = [
             'nomor_anggota' => $input['nomor_anggota'],
-            'username'      => substr($input['nomor_anggota'], 0, 4) . substr($input['nomor_anggota'], -2),
-            'password'      => password_hash($input['password'], PASSWORD_DEFAULT),
+            'username' => $parts[0] . $parts[2],
+            'password' => password_hash($input['password'], PASSWORD_DEFAULT),
         ];
 
-        if (! $this->akun->insert($data, false)) {
+        if (!$this->akun->insert($data, false)) {
             session()->setFlashdata('error', '<strong>Gagal!</strong> Akun gagal ditambahkan.');
             return redirect()->to('/admin/add_akun');
         }
@@ -293,12 +295,12 @@ class Admin extends BaseController
     public function reset_password_juko()
     {
         $nomor_anggota = $this->request->getVar('nomor_anggota');
-        $reset         = [
+        $reset = [
             'nomor_anggota' => $nomor_anggota,
-            'password'      => password_hash('bravokopma', PASSWORD_DEFAULT),
+            'password' => password_hash('bravokopma', PASSWORD_DEFAULT),
         ];
 
-        if (! $this->akun->save($reset)) {
+        if (!$this->akun->save($reset)) {
             session()->setFlashdata('error', 'Password gagal direset');
             return redirect()->to('/admin/akun_juko');
         }
@@ -311,7 +313,7 @@ class Admin extends BaseController
     {
         $nomor_anggota = $this->request->getVar('nomor_anggota');
 
-        if (! $this->akun->where('nomor_anggota', $nomor_anggota)->delete()) {
+        if (!$this->akun->where('nomor_anggota', $nomor_anggota)->delete()) {
             session()->setFlashdata('error', 'Akun gagal dihapus');
             return redirect()->to('/admin/akun_juko');
         }
@@ -319,5 +321,4 @@ class Admin extends BaseController
         session()->setFlashdata('success', 'Akun berhasil dihapus');
         return redirect()->to('/admin/akun_juko');
     }
-
 }
