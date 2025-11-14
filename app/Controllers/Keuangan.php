@@ -88,6 +88,7 @@ class Keuangan extends BaseController
             'id_pembayaran' => $id_pembayaran,
             'timestamp' => Time::now(),
             'nomor_anggota' => $nomor_anggota,
+            'denda' => $this->request->getVar('denda'),
             'nominal' => $this->request->getVar('nominal'),
             'status' => 1,
             'bukti_pembayaran' => '-',
