@@ -130,11 +130,19 @@ class Api extends BaseController
         }
 
         $tagihan = $data_simpanan['tagihan'];
-        
+
         //RUMUS POIN x5 Setiap 10.000
         $data_poin = ($data_simpanan['simpanan_wajib'] / 10000) * 5 + $data_poin['poin'];
         if ($tagihan < 0 || $tagihan == null) {
             $tagihan = 0;
+        }
+        // Hitung denda
+        $bulan_menunggak = floor($tagihan / 10000);
+
+        if ($bulan_menunggak <= 1) {
+            $denda = 0;
+        } else {
+            $denda = ($bulan_menunggak - 1) * 1000;
         }
 
         $response = [
@@ -147,6 +155,7 @@ class Api extends BaseController
                 'simpanan_pokok' => $data_simpanan['simpanan_pokok'],
                 'tagihan' => (float) $tagihan,
                 'poin' => $data_poin,
+                'denda' => $denda,
             ],
         ];
 
@@ -532,6 +541,7 @@ class Api extends BaseController
             'timestamp' => Time::now('Asia/Jakarta', 'id_ID'),
             'nomor_anggota' => $this->request->getVar('nomor_anggota'),
             'nominal' => $this->request->getVar('nominal'),
+            'denda' => $this->request->getVar('denda'),
             'status' => 1,
             'bukti_pembayaran' => $nama_file,
         ];
