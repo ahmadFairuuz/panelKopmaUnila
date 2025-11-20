@@ -595,7 +595,9 @@ class Api extends BaseController
             ->select('pembayaran_simwa.timestamp, pembayaran_simwa.nominal, pembayaran_simwa.status, pembayaran_simwa.denda, data_anggota.nama_lengkap')
             ->join('data_anggota', 'data_anggota.nomor_anggota=pembayaran_simwa.nomor_anggota')
             ->where('pembayaran_simwa.nomor_anggota', $nomor_anggota)
+            ->orderBy('timestamp', 'DESC')
             ->findAll($max, ($page - 1) * $max);
+            
 
         $response = [
             'status' => 200,
