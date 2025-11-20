@@ -592,8 +592,9 @@ class Api extends BaseController
         }
 
         $history = $this->bayar_simwa
-            ->select('id_pembayaran, timestamp, nominal, status')
-            ->where('nomor_anggota', $nomor_anggota)
+            ->select('pembayaran_simwa.timestamp, pembayaran_simwa.nominal, pembayaran_simwa.status, pembayaran_simwa.denda, data_anggota.nama_lengkap')
+            ->join('data_anggota', 'data_anggota.nomor_anggota=pembayaran_simwa.nomor_anggota')
+            ->where('pembayaran_simwa.nomor_anggota', $nomor_anggota)
             ->findAll($max, ($page - 1) * $max);
 
         $response = [
