@@ -621,8 +621,8 @@ class Api extends BaseController
         }
         $kegiatan = $this->data_kegiatan
             ->select('id_kegiatan, nama_kegiatan, tanggal_kegiatan, tempat_kegiatan')
-            ->orderBy('tanggal_kegiatan', 'DESC')
-            ->where('tanggal_kegiatan>', Time::today('Asia/Jakarta'))
+            ->orderBy('tanggal_kegiatan', 'ASC')
+            ->where('tanggal_kegiatan>=', Time::today('Asia/Jakarta'))
             ->findAll($max, ($page - 1) * $max);
 
         if (!$kegiatan) {
