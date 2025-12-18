@@ -117,7 +117,7 @@ class Keuangan extends BaseController
             'bukti_pembayaran' => '-',
         ]);
 
-        session()->setFlashdata('pesan', 'Data pembayaran berhasil');
+        session()->setFlashdata('pesan', 'Berhasil menambah pembayaran simwa');
 
         return redirect()->to('/keuangan/pembayaran_simwa/' . $nomor_anggota);
     }
@@ -139,11 +139,15 @@ class Keuangan extends BaseController
         $this->bayar_simwa->update($id, [
             'status' => 3,
         ]);
-        $this->data_simpanan->update($temp['nomor_anggota'], [
-            'simpanan_wajib' => $simwa,
-            'tagihan' => $tagihan,
-            'denda' => $denda,
-        ]);
+        $this->data_simpanan
+            ->where('nomor_anggota', $temp['nomor_anggota'])
+            ->set([
+                'simpanan_wajib' => $simwa,
+                'tagihan' => $tagihan,
+                'denda' => $denda,
+            ])
+            ->update();
+
         return redirect()->to('/keuangan/pembayaran_simwa');
     }
 
