@@ -175,7 +175,7 @@ class Keuangan extends BaseController
         $spreadsheet->setActiveSheetIndex(0);
         $spreadsheet->getActiveSheet()->removeRow(1);
         $spreadsheet = $spreadsheet->getActiveSheet()->toArray();
-        // dd($spreadsheet);
+//  dd($spreadsheet);
 
         foreach ($spreadsheet as $s) {
             $save = [
@@ -183,6 +183,7 @@ class Keuangan extends BaseController
                 'simpanan_pokok' => $s[2],
                 'simpanan_wajib' => $s[3],
                 'tagihan' => $s[4],
+                'denda' => $s[5],
             ];
 
             if (!$this->data_simpanan->save($save)) {
@@ -212,18 +213,19 @@ class Keuangan extends BaseController
         $sheet->setCellValue('F1', 'Simpanan Wajib');
         $sheet->setCellValue('G1', 'Total Simpanan');
         $sheet->setCellValue('H1', 'Tagihan');
+        $sheet->setCellValue('I1', 'Denda');
         $row = 2;
         $i = 1;
         $date = Time::today('Asia/Jakarta');
 
         foreach ($simpanan as $c) {
-            $tagihan = 0;
-            if ($c['tgl_diksar'] < '2022-01-01') {
-                $tagihan = date_diff(date_create($c['tgl_diksar']), date_create('2022-01-01'))->m * 5000;
-                $month = abs($date->difference('2022-01-01')->getMonths());
-            } else {
-                $month = abs($date->difference($c['tgl_diksar'])->getMonths());
-            }
+            // $tagihan = 0;
+            // if ($c['tgl_diksar'] < '2022-01-01') {
+            //     $tagihan = date_diff(date_create($c['tgl_diksar']), date_create('2022-01-01'))->m * 5000;
+            //     $month = abs($date->difference('2022-01-01')->getMonths());
+            // } else {
+            //     $month = abs($date->difference($c['tgl_diksar'])->getMonths());
+            // }
 
             $sheet->setCellValue('A' . $row, $i++);
             $sheet->setCellValue('B' . $row, $c['nama_lengkap']);
@@ -233,6 +235,7 @@ class Keuangan extends BaseController
             $sheet->setCellValue('F' . $row, $c['simpanan_wajib']);
             $sheet->setCellValue('G' . $row, $c['simpanan_pokok'] + $c['simpanan_wajib']);
             $sheet->setCellValue('H' . $row, $c['tagihan'] == null ? '0' : $c['tagihan']);
+            $sheet->setCellValue('I' . $row, $c['denda'] == null ? '0' : $c['denda']);
             $row++;
         }
 
