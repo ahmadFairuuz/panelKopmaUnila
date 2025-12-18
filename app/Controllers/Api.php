@@ -123,7 +123,6 @@ class Api extends BaseController
 
         $data_simpanan = $this->simpanan->where('nomor_anggota', $nomor_anggota)->first();
         $data_poin = $this->poin->where('nomor_anggota', $nomor_anggota)->first();
-        $d = $this->data_anggota->where('nomor_anggota', $nomor_anggota)->first();
 
         if (!$data_simpanan || !$data_poin) {
             return $this->failNotFound('Data tidak ditemukan');
@@ -137,13 +136,13 @@ class Api extends BaseController
             $tagihan = 0;
         }
         // Hitung denda
-        $bulan_menunggak = floor($tagihan / 10000);
+        // $bulan_menunggak = floor($tagihan / 10000);
 
-        if ($bulan_menunggak <= 1) {
-            $denda = 0;
-        } else {
-            $denda = ($bulan_menunggak - 1) * 1000;
-        }
+        // if ($bulan_menunggak <= 1) {
+        //     $denda = 0;
+        // } else {
+        //     $denda = ($bulan_menunggak - 1) * 1000;
+        // }
 
         $response = [
             'status' => 200,
@@ -155,7 +154,7 @@ class Api extends BaseController
                 'simpanan_pokok' => $data_simpanan['simpanan_pokok'],
                 'tagihan' => (float) $tagihan,
                 'poin' => $data_poin,
-                'denda' => $denda,
+                'denda' => $data_simpanan['denda'],
             ],
         ];
 

@@ -36,16 +36,16 @@ class Keuangan extends BaseController
         // dd(abs(Time::today()->difference('2022-10-01')->getMonths()));
         $search = $this->request->getVar('search');
         if ($search) {
-            $simpanan = $this->data_simpanan->join('data_anggota', 'data_simpanan.nomor_anggota=data_anggota.nomor_anggota')->like('data_anggota.nama_lengkap', $search)->orLike('data_anggota.nomor_anggota', $search)->orderBy('data_anggota.nomor_anggota', 'ASC')->paginate(25, 'data_simpanan');
+            $simpanan = $this->data_simpanan->join('data_anggota', 'data_simpanan.nomor_anggota=data_anggota.nomor_anggota')->like('data_anggota.nama_lengkap', $search)->orLike('data_anggota.nomor_anggota', $search)->orderBy('data_anggota.nomor_anggota', 'ASC')->findAll();
         } else {
-            $simpanan = $this->data_simpanan->join('data_anggota', 'data_simpanan.nomor_anggota=data_anggota.nomor_anggota')->orderBy('data_anggota.nomor_anggota', 'ASC')->paginate(25, 'data_simpanan');
+            $simpanan = $this->data_simpanan->join('data_anggota', 'data_simpanan.nomor_anggota=data_anggota.nomor_anggota')->orderBy('data_anggota.nomor_anggota', 'ASC')->findAll();
         }
         $current_page = $this->request->getVar('page_data_simpanan') ? $this->request->getVar('page_data_simpanan') : 1;
         $data = [
             'title' => 'Data Simpanan',
             'simpanan' => $simpanan,
-            'pager' => $this->data_simpanan->pager,
-            'current_page' => $current_page,
+            // 'pager' => $this->data_simpanan->pager,
+            // 'current_page' => $current_page,
             'date' => Time::today(),
             'validation' => \Config\Services::validation(),
         ];
@@ -69,43 +69,69 @@ class Keuangan extends BaseController
     public function add_simpanan()
     {
         $nomor_anggota = $this->request->getVar('nomor_anggota');
-        $nama = $this->data_anggota->select('nama_lengkap')->where('nomor_anggota', $nomor_anggota)->first();
+        $anggota = $this->data_anggota->select('nama_lengkap')->where('nomor_anggota', $nomor_anggota)->first();
+        $nama_lengkap = $anggota['nama_lengkap'] ?? 'ERROR';
         $data = [
             'title' => 'Tambah Simpanan',
             'nomor_anggota' => $nomor_anggota,
-            'nama' => $nama,
+            'nama_lengkap' => $nama_lengkap,
         ];
         return view('keuangan/add_simpanan', $data);
     }
 
+    // public function save_simpanan()
+    // {
+    //     // dd($this->request->getVar());
+    //     $nomor_anggota = $this->request->getVar('nomor_anggota');
+    //     $id_pembayaran = uniqid();
+
+    //     $this->bayar_simwa->insert([
+    //         'id_pembayaran' => $id_pembayaran,
+    //         'timestamp' => Time::now(),
+    //         'nomor_anggota' => $nomor_anggota,
+    //         'denda' => $this->request->getVar('denda'),
+    //         'nominal' => $this->request->getVar('nominal'),
+    //         'status' => 1,
+    //         'bukti_pembayaran' => '-',
+    //     ]);
+
+    //     // $this->bayar_simwa->c
+    //     session()->setFlashdata('pesan', 'Data berhasil ditambahkan');
+
+    //     return redirect()->to('/keuangan/data_simpanan/' . $nomor_anggota);
+    // }
+
     public function save_simpanan()
     {
-        // dd($this->request->getVar());
         $nomor_anggota = $this->request->getVar('nomor_anggota');
-        $id_pembayaran = uniqid();
+        $nominal = str_replace('.', '', $this->request->getVar('nominal'));
+        $denda = str_replace('.', '', $this->request->getVar('denda'));
 
         $this->bayar_simwa->insert([
-            'id_pembayaran' => $id_pembayaran,
+            'id_pembayaran' => uniqid(),
             'timestamp' => Time::now(),
             'nomor_anggota' => $nomor_anggota,
-            'denda' => $this->request->getVar('denda'),
-            'nominal' => $this->request->getVar('nominal'),
+            'denda' => $denda,
+            'nominal' => $nominal,
             'status' => 1,
             'bukti_pembayaran' => '-',
         ]);
 
-        // $this->bayar_simwa->c
-        session()->setFlashdata('pesan', 'Data berhasil ditambahkan');
+        session()->setFlashdata('pesan', 'Data pembayaran berhasil');
 
-        return redirect()->to('/keuangan/data_simpanan/' . $this->request->getVar('npm'));
+        return redirect()->to('/keuangan/pembayaran_simwa/' . $nomor_anggota);
     }
 
     public function accept($id)
     {
-        $temp = $this->bayar_simwa->select('nomor_anggota, nominal')->where('id_pembayaran', $id)->first();
+        $temp = $this->bayar_simwa->select('nomor_anggota, nominal,denda')->where('id_pembayaran', $id)->first();
         // $npm = $this->data_anggota->select('npm')->where('nomor_anggota', $temp['nomor_anggota'])->first();
         $simpanan_lama = $this->data_simpanan->where('nomor_anggota', $temp['nomor_anggota'])->first();
         $simwa = $simpanan_lama['simpanan_wajib'] + $temp['nominal'];
+        $denda = $simpanan_lama['denda'] - $temp['denda'];
+        if ($denda < 0) {
+            $denda = 0;
+        }
         $tagihan = $simpanan_lama['tagihan'] - $temp['nominal'];
         if ($tagihan <= 0) {
             $tagihan = 0;
@@ -116,6 +142,7 @@ class Keuangan extends BaseController
         $this->data_simpanan->update($temp['nomor_anggota'], [
             'simpanan_wajib' => $simwa,
             'tagihan' => $tagihan,
+            'denda' => $denda,
         ]);
         return redirect()->to('/keuangan/pembayaran_simwa');
     }

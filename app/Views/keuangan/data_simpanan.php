@@ -61,8 +61,8 @@
                             session()->remove('pesan');
                         }
                         ?>
-                        <div class="container overflow-scroll">
-                            <table class="table table-striped table-responsive tabel-data text-center w-100 fs-6" style="font-size: 12px;" id="tableData">
+                        <div class="table-responsive my-3">
+                            <table class="table table-striped align-middle" style="font-size: 12px;" id="dataTable">
                                 <thead>
                                     <th scope="col">#</th>
                                     <th scope="col">Action</th>
@@ -72,18 +72,20 @@
                                     <th scope="col">Simpanan Wajib</th>
                                     <th scope="col">Total Simpanan</th>
                                     <th scope="col">Tagihan</th>
+                                    <th scope="col">Denda</th>
                                 </thead>
                                 <?php
-                                $i = 1 + (25 * ($current_page - 1));
+                                $i = 1;
                                 foreach ($simpanan as $d) {
                                 ?>
                                     <tr>
+                                        <!-- hapus variabel i -->
                                         <th scope="row"><?= $i++ ?></th>
                                         <td>
                                             <form action="<?= base_url('keuangan/add_simpanan') ?>" method="post">
                                                 <input type="hidden" name="nomor_anggota" value="<?= $d['nomor_anggota'] ?>">
-                                                <button type="submit" class="btn btn-sm btn-warning">
-                                                    <ion-icon name="add-outline"></ion-icon>
+                                                <button type="submit" class="btn btn-sm btn-warning py-0 shadow-sm d-flex justify-content-center align-items-center">
+                                                    <ion-icon class="pr-1" name="add-outline"></ion-icon>Bayar Simwa
                                                 </button>
                                             </form>
                                         </td>
@@ -94,10 +96,11 @@
                                         <td>Rp<?= number_format($d['simpanan_wajib'], 2) ?></td>
                                         <td>Rp<?= number_format($d['simpanan_pokok'] + $d['simpanan_wajib'], 2) ?></td>
                                         <td>Rp<?= number_format($d['tagihan'], 2) ?></td>
+                                        <td>Rp<?= number_format($d['denda'], 2) ?></td>
                                     </tr>
                                 <?php } ?>
                             </table>
-                            <?= $pager->links('data_simpanan', 'custom_pagination') ?>
+                            
                         </div>
                     </div>
                 </div>
@@ -145,3 +148,12 @@
 </div>
 <!-- End #main -->
 <?= $this->endSection(); ?>
+
+
+<script src="sadmin2/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="sadmin2/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#dataTable').DataTable({});
+    });
+</script>

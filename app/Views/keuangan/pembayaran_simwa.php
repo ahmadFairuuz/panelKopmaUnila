@@ -9,12 +9,38 @@ echo $this->section('main');
             <div class="col-12">
                 <div class="card">
                     <div class="card-header mx-3 mt-3">
-                        <h3><?php echo $title; ?></h3>
+                        <h3><?= $title; ?></h3>
                     </div>
                     <div class="card-body my-3">
                         <!-- Buat Konten Disini -->
-                        <div class="container overflow-scroll">
-                            <table class="table table-striped table-responsive tabel-data fs-6" id="tableData">
+                         <?php
+                        if (session()->getFlashdata('pesan')) {
+                        ?>
+                            <div class="row mx-2">
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <?= session()->getFlashData('pesan') ?>
+                                    <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            </div>
+                        <?php
+                            session()->remove('pesan');
+                        }
+                        ?>
+                        <?php
+                        if (session()->getFlashdata('error')) {
+                        ?>
+                            <div class="row mx-2">
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <?= session()->getFlashdata('error') ?>
+                                    <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            </div>
+                        <?php
+                            session()->remove('pesan');
+                        }
+                        ?>
+                        <div class="table responsive my-3">
+                            <table class="table table-striped fs-6" id="dataTable">
                                 <tr>
                                     <?php
                                     if (has_permission('mengelola_keuangan')) {
@@ -86,8 +112,7 @@ echo $this->section('main');
                                 </tr>
                                 <?php } ?>
                             </table>
-                            <?php echo $pager->links('pembayaran_simwa', 'custom_pagination'); ?>
-                        </div>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -96,3 +121,10 @@ echo $this->section('main');
 </main>
 <!-- End #main -->
 <?php echo $this->endSection(); ?>
+<script src="sadmin2/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="sadmin2/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#dataTable').DataTable({});
+    });
+</script>
