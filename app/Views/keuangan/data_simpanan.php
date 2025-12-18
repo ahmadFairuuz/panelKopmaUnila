@@ -16,21 +16,22 @@
                                 <!-- Search Field -->
                                 <button class="btn btn-success rounded-3" style="font-size: .9em;" type="button" data-bs-toggle="modal" data-bs-target="#uploadModal">
                                     <i class="bi bi-upload me-1"></i>
-                                    XLSX
+                                    Upload XLSX
                                 </button>
-                                <!-- Search Fiela -->
+                                
                             </div>
                             <!-- Download Button -->
                             <div class="col justify-content-end d-flex">
-                                <form class="form w-50 d-flex align-items-center me-3">
+                                <!-- Search Fiela -->
+                                <!-- <form class="form w-50 d-flex align-items-center me-3">
                                     <button type="submit" class="btn btn-sm">
                                         <ion-icon name="search-outline"></ion-icon>
                                     </button>
                                     <input name="search" type="search" class="form-control d-flex rounded-pill ms-1" style="height: 28px;" placeholder="Search" aria-label="Search" id="fieldSearch" autocomplete="off">
-                                </form>
+                                </form> -->
                                 <a href="<?= base_url('keuangan/save_excel') ?>" class="btn btn-success btn-sm py-0 rounded-3 shadow-sm d-flex justify-content-center align-items-center" style="font-size: .8em;">
                                     <i class="bi bi-download me-2"></i>
-                                    XLSX
+                                    Download XLSX
                                 </a>
                             </div>
                             <!-- Download Button -->
@@ -62,7 +63,7 @@
                         }
                         ?>
                         <div class="table-responsive my-3">
-                            <table class="table table-striped align-middle" style="font-size: 12px;" id="dataTable">
+                            <table class="table table-striped align-middle" style="font-size: 12px;" id="tableSimpanan">
                                 <thead>
                                     <th scope="col">#</th>
                                     <th scope="col">Action</th>
@@ -149,11 +150,17 @@
 <!-- End #main -->
 <?= $this->endSection(); ?>
 
-
-<script src="sadmin2/vendor/datatables/jquery.dataTables.min.js"></script>
-<script src="sadmin2/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+<!-- SCRIPT UNTUK DATATABLES -->
+<?= $this->section('scripts') ?>
 <script>
-    $(document).ready(function() {
-        $('#dataTable').DataTable({});
+$(document).ready(function () {
+    $('#tableSimpanan').DataTable({
+        pageLength: 50,
+        lengthMenu: [10, 25, 50, 100, 250, 500],
+        ordering: true,
+        searching: true,
+        info: true
     });
+});
 </script>
+<?= $this->endSection() ?>

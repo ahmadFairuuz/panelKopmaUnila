@@ -68,7 +68,6 @@
 
 
   <!-- SADMIN 2 -->
-  <link href="<?= base_url('sadmin2/css/sb-admin-2.min.css') ?>" rel="stylesheet" />
   <link href="<?= base_url('sadmin2/vendor/datatables/dataTables.bootstrap4.min.css') ?>" rel="stylesheet" />
 
   <!-- =======================================================
@@ -130,8 +129,7 @@
   <script src="<?= base_url('sadmin2/vendor/jquery-easing/jquery.easing.min.js') ?>"></script>
   <script src="<?= base_url('sadmin2/js/sb-admin-2.min.js') ?>"></script>
   <script src="<?= base_url('sadmin2/vendor/datatables/jquery.dataTables.min.js') ?>"></script>
-  <script src="<?= base_url('admin2/vendor/datatables/dataTables.bootstrap4.min.js') ?>"></script>
-  <script src="<?= base_url('sadmin2/js/demo/datatables-demo.js') ?>"></script>
+  <script src="<?= base_url('sadmin2/vendor/datatables/dataTables.bootstrap4.min.js') ?>"></script>
 
 
 
@@ -145,6 +143,9 @@
   <!-- Template Main JS File -->
 
   <script src="<?= base_url('assets/js/main.js') ?>"></script>
+
+  <?= $this->renderSection('scripts') ?>
+
 
 </body>
 

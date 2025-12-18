@@ -89,9 +89,7 @@ h6 {
 #main {
 
 	margin-top: 60px;
-
-	padding: 20px 30px;
-
+	padding: 20px;
 	transition: all 0.3s;
 
 }
@@ -103,6 +101,7 @@ h6 {
 	#main {
 
 		padding: 20px;
+		margin-left: 0px;
 
 	}
 
@@ -1302,7 +1301,7 @@ h6 {
 
 	#footer {
 
-		margin-left: 210px;
+		margin-left: 300px;
 
 	}
 

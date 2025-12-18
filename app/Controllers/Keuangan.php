@@ -54,13 +54,13 @@ class Keuangan extends BaseController
 
     public function pembayaran_simwa()
     {
-        $simwa = $this->bayar_simwa->join('data_anggota', 'data_anggota.nomor_anggota=pembayaran_simwa.nomor_anggota')->orderBy('id_pembayaran', 'DESC')->paginate(50, 'pembayaran_simwa');
-        $current_page = $this->request->getVar('page_pembayaran_simwa') ? $this->request->getVar('page_pembayaran_simwa') : 1;
+        $simwa = $this->bayar_simwa->join('data_anggota', 'data_anggota.nomor_anggota=pembayaran_simwa.nomor_anggota')->orderBy('waktu_pembayaran', 'DESC')->findAll();
+        //$current_page = $this->request->getVar('page_pembayaran_simwa') ? $this->request->getVar('page_pembayaran_simwa') : 1;
         $data = [
             'title' => 'Pembayaran Simpanan Wajib',
             'simwa' => $simwa,
-            'pager' => $this->bayar_simwa->pager,
-            'current_page' => $current_page,
+            // 'pager' => $this->bayar_simwa->pager,
+            // 'current_page' => $current_page,
             'validation' => \Config\Services::validation(),
         ];
         return view('keuangan/pembayaran_simwa', $data);
