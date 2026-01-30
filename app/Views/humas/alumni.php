@@ -1,5 +1,5 @@
-<?= $this->extend("dashboard/sidebar") ?>
-<?= $this->section("main") ?>
+<?= $this->extend('dashboard/sidebar') ?>
+<?= $this->section('main') ?>
 <main id="main" class="main">
     <!-- End Page Title -->
     <section class="section dashboard">
@@ -13,22 +13,24 @@
                         <!-- Buat Konten Disini -->
                         <?php
                         if (session()->getFlashdata('success')) { ?>
-                            <div class="row mx-1">
-                                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                    <span><?= session()->getFlashdata('success') ?></span>
-                                    <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
+                        <div class="row mx-1">
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <span><?= session()->getFlashdata('success') ?></span>
+                                <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
                             </div>
+                        </div>
                         <?php
 
                         } else if (session()->getFlashdata('error')) {
                         ?>
-                            <div class="row mx-1">
-                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    <span><?= session()->getFlashdata('error') ?></span>
-                                    <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
+                        <div class="row mx-1">
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <span><?= session()->getFlashdata('error') ?></span>
+                                <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
                             </div>
+                        </div>
                         <?php
                         }
                         ?>
@@ -36,27 +38,24 @@
                             <div class="col d-flex justify-content-between">
                                 <!-- Search Fiela -->
                                 <div class="col d-flex align-items-center">
-                                    <div class="btn-group">
+                                    <div class="btn-group gap-1">
                                         <a class="btn btn-success btn-sm text-white d-flex align-items-center"
-                                            role="group" href="<?= base_url(
-                                                                    "humas/add_alumni",
-                                                                ) ?>">
+                                            role="group" href="<?= base_url('humas/add_alumni') ?>">
                                             <i class="bi bi-plus bold" style="font-size: 1.4em;"></i>
                                         </a>
-                                        <button class="btn btn-success border-start" type="button"
+                                        <button class="btn btn-success border-start " type="button"
                                             data-bs-toggle="modal" data-bs-target="#uploadModal">
                                             <i class="bi bi-upload me-1"></i>
                                             XLSX
                                         </button>
-                                        <a class="btn btn-primary btn-sm text-white d-flex align-items-center ml-1" href="<?= base_url('humas/export_alumni') ?>">
+                                        <a class="btn btn-primary btn-sm text-white d-flex align-items-center"
+                                            href="<?= base_url('humas/export_alumni') ?>">
                                             <i class="bi bi-file-earmark-excel me-1"></i> Export
                                         </a>
                                     </div>
                                     <!-- SEARCH BAR BAWAAN -->
                                     <!-- <form class="form w-25 ms-auto d-flex align-items-center" method="POST"
-                                        action="<?= base_url(
-                                                    "humas/alumni",
-                                                ) ?>">
+                                        action="<?= base_url('humas/alumni') ?>">
                                         <button type="submit" class="btn btn-white">
                                             <ion-icon name="search-outline"></ion-icon>
                                         </button>
@@ -68,8 +67,7 @@
                             </div>
                         </div>
                         <div class="table-responsive my-3">
-                            <table class="table align-middle table-striped " style="font-size: .8em;"
-                                id="dataTable">
+                            <table class="table align-middle table-striped " style="font-size: .8em;" id="dataTable">
                                 <thead>
                                     <tr class="fw-bold fs-5 text-dark">
                                         <th scope="col">#</th>
@@ -95,53 +93,49 @@
                                 } else {
                                     $i = 1;
                                     foreach ($alumni as $d) { ?>
-                                        <tr>
-                                            <th scope="row"><?= $i++ ?></th>
-                                            <td><?= $d->nama_alumni ?></td>
-                                            <td><?= $d->nomor_anggota ?></td> <!-- Nomor Anggota (dummy) -->
-                                            <td><?= $d->npm ?></td> <!-- Nomor Anggota (dummy) -->
-                                            <td><?= $d->tahun_masuk ?></td> <!-- Nomor Anggota (dummy) -->
-                                            <td><?= $d->jurusan ?></td> <!-- Jurusan (dummy) -->
-                                            <td><?= $d->fakultas ?></td> <!-- Fakultas (dummy) -->
-                                            <td><?= $d->jabatan ?></td> <!-- Jabatan (dummy) -->
-                                            <td><?= $d->alamat_alumni ?></td>
-                                            <td><?= $d->email_alumni ?></td>
-                                            <td><?= $d->no_hp_alumni ?></td>
-                                            <td><?= $d->tahun_lulus ?></td>
-                                            <td><?= $d->jenis_kelamin ?></td> <!-- Jenis Kelamin (dummy) -->
-                                            <td><?= $d->pekerjaan ?></td>
-                                            <td><?= $d->status_alumni ?></td>
-                                            <td>
-                                                <div class="row">
-                                                    <div class="col-12 d-flex align-items-center">
-                                                        <!-- STAFF TDK BISA HAPUS ALUMNI -->
-                                                    <?php
+                                <tr>
+                                    <th scope="row"><?= $i++ ?></th>
+                                    <td><?= $d->nama_alumni ?></td>
+                                    <td><?= $d->nomor_anggota ?></td> <!-- Nomor Anggota (dummy) -->
+                                    <td><?= $d->npm ?></td> <!-- Nomor Anggota (dummy) -->
+                                    <td><?= $d->tahun_masuk ?></td> <!-- Nomor Anggota (dummy) -->
+                                    <td><?= $d->jurusan ?></td> <!-- Jurusan (dummy) -->
+                                    <td><?= $d->fakultas ?></td> <!-- Fakultas (dummy) -->
+                                    <td><?= $d->jabatan ?></td> <!-- Jabatan (dummy) -->
+                                    <td><?= $d->alamat_alumni ?></td>
+                                    <td><?= $d->email_alumni ?></td>
+                                    <td><?= $d->no_hp_alumni ?></td>
+                                    <td><?= $d->tahun_lulus ?></td>
+                                    <td><?= $d->jenis_kelamin ?></td> <!-- Jenis Kelamin (dummy) -->
+                                    <td><?= $d->pekerjaan ?></td>
+                                    <td><?= $d->status_alumni ?></td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-12 d-flex align-items-center">
+                                                <!-- STAFF TDK BISA HAPUS ALUMNI -->
+                                                <?php
                                                     if (! in_groups('staff humas')) {
                                                     ?>
-                                                        <form action="<?= base_url(
-                                                                            "humas/delete_alumni",
-                                                                        ) ?>" method="POST">
-                                                            <?= csrf_field() ?>
-                                                            <input type="hidden" name="slug" value="<?= $d->slug_alumni ?>">
-                                                            <button type="submit" onclick="return confirm('Apakah anda yakin?')"
-                                                                class="btn btn-danger btn-sm">
-                                                                <ion-icon name="trash-outline"></ion-icon>
-                                                            </button>
-                                                        </form>
-                                                    <?php
+                                                <form action="<?= base_url('humas/delete_alumni') ?>" method="POST">
+                                                    <?= csrf_field() ?>
+                                                    <input type="hidden" name="slug" value="<?= $d->slug_alumni ?>">
+                                                    <button type="submit"
+                                                        onclick="return confirm('Apakah anda yakin?')"
+                                                        class="btn btn-danger btn-sm">
+                                                        <ion-icon name="trash-outline"></ion-icon>
+                                                    </button>
+                                                </form>
+                                                <?php
                                                     };
                                                     ?>
-                                                        <a href="<?= base_url(
-                                                                        "humas/edit_alumni/" .
-                                                                            $d->slug_alumni
-                                                                    ) ?>"
-                                                            class="ms-2 btn btn-sm btn-warning">
-                                                            <i class="bi bi-pencil"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                                <a href="<?= base_url('humas/edit_alumni/' . $d->slug_alumni) ?>"
+                                                    class="ms-2 btn btn-sm btn-warning">
+                                                    <i class="bi bi-pencil"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
                                 <?php }
                                 } ?>
                             </table>
@@ -159,9 +153,7 @@
                 <h1 class="modal-title fs-5">Upload XLSX</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="<?= base_url(
-                                "humas/upload_alumni",
-                            ) ?>" method="post" enctype="multipart/form-data">
+            <form action="<?= base_url('humas/upload_alumni') ?>" method="post" enctype="multipart/form-data">
                 <div class="modal-body mx-2">
                     <div class="row mb-3">
                         <div class="col-3 d-flex align-items-center">
@@ -178,9 +170,7 @@
                             Template
                         </div>
                         <div class="col-9">
-                            <a href="<?= base_url(
-                                            "assets/uploads/document/template/template_alumni_2025.xlsx",
-                                        ) ?>"
+                            <a href="<?= base_url('assets/uploads/document/template/template_alumni_2025.xlsx') ?>"
                                 target="_blank" class="btn btn-primary btn-sm">
                                 <i class="bi bi-download ms-1"></i>
                                 Download
@@ -197,17 +187,24 @@
     </div>
 </div>
 <!-- End #main -->
+
 <?= $this->endSection() ?>
 
-<script src="sadmin2/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<!-- SCRIPT UNTUK DATATABLES -->
+<?= $this->section('scripts') ?>
 <script>
     $(document).ready(function() {
         $('#dataTable').DataTable({
-            "ordering": true, // aktifkan sorting
-            "paging": true, // hilangkan pagination
-            "info": true, // hilangkan info "Showing 1 to ..."
-            "searching": true, // hilangkan search bawaan
-            "lengthChange": true, // hilangkan "Show 10 entries"
+            pageLength: 100,
+            lengthMenu: [10, 25, 50, 100, 250, 500],
+            ordering: true,
+            searching: true,
+            order: [
+                [0, 'asc']
+            ],
+            info: true,
         });
     });
 </script>
+<?= $this->endSection() ?>

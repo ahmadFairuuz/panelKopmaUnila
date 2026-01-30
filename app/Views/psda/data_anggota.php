@@ -180,10 +180,20 @@
 <!-- End #main -->
 <?= $this->endSection() ?>
 
-<script src="sadmin2/vendor/datatables/jquery.dataTables.min.js"></script>
-<script src="sadmin2/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+<!-- SCRIPT UNTUK DATATABLES -->
+<?= $this->section('scripts') ?>
 <script>
     $(document).ready(function() {
-        $('#dataTable').DataTable({});
+        $('#dataTable').DataTable({
+            pageLength: 100,
+            lengthMenu: [10, 25, 50, 100, 250, 500],
+            ordering: true,
+            searching: true,
+            order: [
+                [0, 'asc']
+            ],
+            info: true,
+        });
     });
 </script>
+<?= $this->endSection() ?>

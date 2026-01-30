@@ -53,7 +53,7 @@ echo $this->section('main');
                         ?>
                         <div class="row">
                             <div class="col-12 table-responsive">
-                                <table class="table table-striped  tabel-data text-center w-100 fs-3" style="font-size: 12px;" id="tableData">
+                                <table class="table table-striped  tabel-data text-center w-100 fs-3" style="font-size: 12px;" id="dataTable">
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
@@ -113,4 +113,22 @@ echo $this->section('main');
     </section>
 </main>
 <!-- End #main -->
+<?= $this->endSection() ?>
+
+<!-- SCRIPT UNTUK DATATABLES -->
+<?= $this->section('scripts') ?>
+<script>
+    $(document).ready(function() {
+        $('#dataTable').DataTable({
+            pageLength: 100,
+            lengthMenu: [10, 25, 50, 100, 250, 500],
+            ordering: true,
+            searching: true,
+            order: [
+                [0, 'asc']
+            ],
+            info: true,
+        });
+    });
+</script>
 <?= $this->endSection() ?>

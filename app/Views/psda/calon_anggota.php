@@ -92,7 +92,7 @@ echo $this->section('main');
                                         <th scope="col">Jurusan</th>
                                         <th scope="col">Fakultas</th>
                                         <th scope="col">Nomor WA</th>
-                                        <th scope="col">Email</th>
+                                        <th scope="col"  style="width: 50px;">Email</th>
                                         <th scope="col">Asal Informasi</th>
                                         <th scope="col">Domisili</th>
                                         <th scope="col">Tempat Lahir</th>
@@ -100,6 +100,7 @@ echo $this->section('main');
                                         <th scope="col">Alasan Masuk Kopma</th>
                                         <th scope="col">Kode Referal</th>
                                         <th scope="col">Berkas</th>
+                                        
                                     </tr>
                                 </thead>
                                 <?php $i = 1 + (25 * ($current_page - 1));
@@ -233,16 +234,21 @@ echo $this->section('main');
 </style>
 <!-- End #main -->
 <?php echo $this->endSection(); ?>
-<script src="sadmin2/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-<script src="sadmin2/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<!-- SCRIPT UNTUK DATATABLES -->
+<?= $this->section('scripts') ?>
 <script>
     $(document).ready(function() {
         $('#dataTable').DataTable({
-            "ordering": true, // aktifkan sorting
-            "paging": true, // hilangkan pagination
-            "info": true, // hilangkan info "Showing 1 to ..."
-            "searching": true, // hilangkan search bawaan
-            "lengthChange": true, // hilangkan "Show 10 entries"
+            pageLength: 100,
+            lengthMenu: [10, 25, 50, 100, 250, 500],
+            ordering: true,
+            searching: true,
+            order: [
+                [0, 'asc']
+            ],
+            info: true,
         });
     });
 </script>
+<?= $this->endSection() ?>
