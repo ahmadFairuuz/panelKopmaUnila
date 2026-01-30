@@ -103,7 +103,7 @@ echo $this->section('main');
                                         
                                     </tr>
                                 </thead>
-                                <?php $i = 1 + (25 * ($current_page - 1));
+                                <?php $i = 1;
                                 foreach ($calon_anggota as $d) {?>
                                 <tr id="<?php echo $d['npm']; ?>">
                                     <th scope="row"><?php echo $i++; ?></th>

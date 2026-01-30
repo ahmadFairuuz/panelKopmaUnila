@@ -431,23 +431,21 @@ class Psda extends BaseController
     public function calon_anggota()
     {
         // dd($this->calon_anggota);
-        $search = $this->request->getVar('search');
-        if ($search) {
-            $calon = $this->calon_anggota
-                ->like('calon_anggota.npm', $search)
-                ->orLike('calon_anggota.nama_lengkap', $search)
-                ->orLike('calon_anggota.jurusan', $search)
-                ->orlike('calon_anggota.fakultas', $search)
-                ->paginate(25, 'calon_anggota');
-        } else {
-            $calon = $this->calon_anggota->paginate(25, 'calon_anggota');
-        }
-        $cur_page = $this->request->getVar('page_calon_anggota') ? $this->request->getVar('page_calon_anggota') : 1;
+        //$search = $this->request->getVar('search');
+        // if ($search) {
+        //     $calon = $this->calon_anggota
+        //         ->like('calon_anggota.npm', $search)
+        //         ->orLike('calon_anggota.nama_lengkap', $search)
+        //         ->orLike('calon_anggota.jurusan', $search)
+        //         ->orlike('calon_anggota.fakultas', $search)
+        //         ->paginate(25, 'calon_anggota');
+        // } else {
+             $calon = $this->calon_anggota->findAll();
+    
         $data = [
             'title' => 'Calon Anggota',
             'calon_anggota' => $calon,
             'pager' => $this->calon_anggota->pager,
-            'current_page' => $cur_page,
         ];
         return view('psda/calon_anggota', $data);
     }
