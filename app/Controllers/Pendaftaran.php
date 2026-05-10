@@ -55,7 +55,8 @@ class Pendaftaran extends BaseController
                 'errors' => [
                     'required' => 'NPM tidak boleh kosong',
                     'numeric' => 'NPM harus berupa angka',
-                    'exact_length' => 'NPM harus berjumlah 10 digit'
+                    'exact_length' => 'NPM harus berjumlah 10 digit',
+                    'is_unique' => 'NPM anda sudah terdaftar (akun sudah ada)'
                 ]
             ],
             'email' => [
