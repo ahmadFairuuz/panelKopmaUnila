@@ -2473,6 +2473,14 @@ h6 {
 
 }
 
+@media (max-width: 768px) {
+    #dataTable {
+        font-size: 10px !important;
+    }
+	.tabel-data {
+		font-size: 10px !important;
+}
+
 
 
 /*--------------------------------------------------------------
@@ -2517,3 +2525,4 @@ h6 {
 
 }
 
+}

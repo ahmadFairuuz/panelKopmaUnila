@@ -14,7 +14,7 @@ echo $this->section('main');
                     <div class="card-body my-3">
                         <!-- Buat Konten Disini -->
                         <div class="row mb-2">
-                            <div class="col-3">
+                            <div class="col-8 col-md-4">
                                 <div class="ms-3">
                                     <a href="<?= base_url('admin/add_akun') ?>" class="btn btn-sm btn-primary w-75 justify-content-center d-flex align-items-center">
                                         <i class="bi bi-plus-circle me-1"></i>
@@ -22,14 +22,14 @@ echo $this->section('main');
                                     </a>
                                 </div>
                             </div>
-                            <div class="col-4 ms-auto">
+                            <!-- <div class="col-4 ms-auto">
                                 <form action="<?= base_url('admin/akun_juko') ?>" method="post" class="d-flex align-items-center">
                                     <button type="submit" class="btn btn-sm btn-white">
                                         <i class="bi bi-search"></i>
                                     </button>
                                     <input type="search" name="search" id="search" class="form-control rounded-pill" placeholder="Search" autocomplete="FALSE">
                                 </form>
-                            </div>
+                            </div> -->
                         </div>
                         <?php
                         if (session()->getFlashdata('success')) { ?>
@@ -52,15 +52,15 @@ echo $this->section('main');
                         }
                         ?>
                         <div class="row">
-                            <div class="col-12 table-responsive">
-                                <table class="table table-striped  tabel-data text-center w-100 fs-3" style="font-size: 12px;" id="dataTable">
+                            <div class="table-responsive">
+                                <table class="table table-striped tabel-data text-center w-100" style="font-size: 15px;" id="dataTable">
                                     <thead>
                                         <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Nama</th>
-                                            <th scope="col">Nomor Anggota</th>
-                                            <th scope="col">Username</th>
-                                            <th scope="col">Action</th>
+                                            <th scope="col" style="width: 5%;">#</th>
+                                            <th scope="col" style="width: 30%;">Nama</th>
+                                            <th scope="col" style="width: 25%;">Nomor Anggota</th>
+                                            <th scope="col" style="width: 20%;">Username</th>
+                                            <th scope="col" style="width: 20%;">Action</th>
                                         </tr>
                                     </thead>
                                     <?php
@@ -70,7 +70,7 @@ echo $this->section('main');
                                         $i = 1;
                                         foreach ($akun as $d) {
                                     ?>
-                                            <tr class="fs-5">
+                                            <tr class="">
                                                 <td>
                                                     <?= $i++ ?>
                                                 </td>

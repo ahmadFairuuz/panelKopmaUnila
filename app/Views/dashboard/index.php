@@ -15,7 +15,7 @@ echo $this->section('main');
     <!-- End Page Title -->
     <section class="section dashboard">
         <div class="row">
-            <div class="col-4">
+            <div class="col-12 col-md-6 col-lg-4">
                 <div class="card info-card sales-card">
                     <div class="card-body">
                         <h5 class="card-title">Jumlah Anggota</h5>
@@ -32,7 +32,7 @@ echo $this->section('main');
                     </div>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-12 col-md-6 col-lg-4">
                 <div class="card info-card sales-card">
                     <div class="card-body">
                         <h5 class="card-title">Total Simpanan</h5>
@@ -49,7 +49,7 @@ echo $this->section('main');
                     </div>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-12 col-md-6 col-lg-4">
                 <div class="card info-card sales-card">
                     <div class="card-body">
                         <h5 class="card-title">Anggota Baru <span>| Tahun ini</span></h5>
@@ -66,13 +66,16 @@ echo $this->section('main');
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-6">
+           
+        </div>
+         <div class="row">
+                <div class="col-12 col-md-6">
                     <div class="card">
                         <div class="card-header mx-2 mt-2">
                             Kegiatan Selesai
                         </div>
                         <div class="card-body my-3">
+                            <div class="table-responsive">
                             <table class="table table-white">
                                 <thead>
                                     <tr>
@@ -101,15 +104,17 @@ echo $this->section('main');
                                     ?>
                                 </tbody>
                             </table>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-12 col-md-6">
                     <div class="card">
                         <div class="card-header mx-2 mt-2">
                             Kegiatan Terdekat
                         </div>
                         <div class="card-body my-3">
+                            <div class="table-responsive">
                             <table class="table table-white">
                                 <thead>
                                     <tr>
@@ -136,11 +141,11 @@ echo $this->section('main');
                                     ?>
                                 </tbody>
                             </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 </main>
 <?= $this->endSection(); ?>
