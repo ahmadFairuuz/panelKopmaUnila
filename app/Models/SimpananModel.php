@@ -22,8 +22,6 @@ class SimpananModel extends Model
 
 
 
-
-
     protected $useTimestamps = true;
 
     protected $dateFormat    = 'datetime';

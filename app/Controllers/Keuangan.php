@@ -1,12 +1,11 @@
 <?php
-
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\AnggotaModel;
 use App\Models\LaporanKeuangan;
-use App\Models\SimpananModel;
 use App\Models\PembayaranSimwa;
+use App\Models\SimpananModel;
 use CodeIgniter\I18n\Time;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
@@ -159,6 +158,54 @@ class Keuangan extends BaseController
         return redirect()->to('/keuangan/pembayaran_simwa');
     }
 
+    //GENERATE DATA SIMPANAN UNTUK ANGGOTA BARU TAHUN BERJALAN
+    public function generate_simpanan_tahun_ini()
+    {
+        $tahunSekarang = date('y'); // 26 untuk tahun 2026
+
+        // Ambil semua anggota tahun berjalan
+        $anggota = $this->data_anggota->findAll();
+
+        $inserted = 0;
+        $skip = 0;
+
+        foreach ($anggota as $row) {
+
+            $tahunAnggota = substr($row['nomor_anggota'], -2);
+
+
+            if ($tahunAnggota != $tahunSekarang) {
+                continue;
+            }
+
+            $cek = $this->data_simpanan
+                ->where('nomor_anggota', $row['nomor_anggota'])
+                ->first();
+
+            if (!$cek) {
+
+                $this->data_simpanan->insert([
+                    'nomor_anggota' => $row['nomor_anggota'],
+                    'simpanan_pokok' => 35000,
+                    'simpanan_wajib' => 0,
+                    'tagihan' => 0,
+                    'denda' => 0
+                ]);
+
+                $inserted++;
+            } else {
+                $skip++;
+            }
+        }
+
+        session()->setFlashdata(
+            'pesan',
+            "Sinkronisasi selesai data tahun {$tahunSekarang}. {$inserted} data baru ditambahkan"
+        );
+
+        return redirect()->to('/keuangan/data_simpanan');
+    }
+
     public function upload_data()
     {
         $file = $this->request->getFile('file');
@@ -175,7 +222,7 @@ class Keuangan extends BaseController
         $spreadsheet->setActiveSheetIndex(0);
         $spreadsheet->getActiveSheet()->removeRow(1);
         $spreadsheet = $spreadsheet->getActiveSheet()->toArray();
-//  dd($spreadsheet);
+        //  dd($spreadsheet);
 
         foreach ($spreadsheet as $s) {
             $save = [
