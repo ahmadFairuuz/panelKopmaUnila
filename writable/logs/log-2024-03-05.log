@@ -1,8 +1,0 @@
-CRITICAL - 2024-03-05 19:13:31 --> unlink(assets/uploads/document/surat_keluar/9862-035_B_Surat undangan Kepala Dinas.doc): No such file or directory
-in APPPATH/Controllers/Administrasi.php on line 462.
- 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(assets/uploads/document/surat_keluar/9862-035_B_Surat undangan Kepala Dinas.doc): No such file or directory', 'APPPATH/Controllers/Administrasi.php', 462, [...])
- 2 APPPATH/Controllers/Administrasi.php(462): unlink('assets/uploads/document/surat_keluar/9862-035_B_Surat undangan Kepala Dinas.doc')
- 3 SYSTEMPATH/CodeIgniter.php(907): App\Controllers\Administrasi->delete_surat_keluar()
- 4 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Administrasi))
- 5 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
- 6 FCPATH/index.php(55): CodeIgniter\CodeIgniter->run()
